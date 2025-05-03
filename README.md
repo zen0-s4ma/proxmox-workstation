@@ -1,5 +1,5 @@
 Hacer copia de seguridad del fichero original de repositorios:
-cp /etc/apt/sources.list /etc/apt/sources.list.bak
+- cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
 Edita /etc/apt/sources.list con lo siguiente:
 - deb http://deb.debian.org/debian bookworm main contrib non-free-firmware
@@ -9,6 +9,6 @@ Edita /etc/apt/sources.list con lo siguiente:
 - deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription
 
 Importar la clave GPG de Proxmox:
-wget -qO /etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg
+- wget -qO /etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg
 
 
