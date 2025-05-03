@@ -41,13 +41,15 @@ apt install -y \
   nvidia-cuda-toolkit \
   linux-headers-$(uname -r)
 
+echo "Instalando LightDM como gestor de inicio de sesión…"
+apt install -y lightdm 
+
 echo "Instalando entornos de escritorio (GNOME, KDE, Cinnamon, XFCE)…"
 apt install -y \
   task-gnome-desktop \
   task-kde-desktop \
   task-cinnamon-desktop \
   task-xfce-desktop
-
 
 # 3) Segunda ronda de actualización y limpieza final
 echo "==> Actualización final y limpieza…"
