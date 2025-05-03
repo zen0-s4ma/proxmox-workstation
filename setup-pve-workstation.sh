@@ -6,23 +6,50 @@ echo "==> Actualizando sistema base y kernel…"
 apt update
 apt full-upgrade -y
 
-# 2) Instalar Git para clonar repositorios
-echo "==> Instalando Git…"
-apt install -y git
+# 2) Instala herramientas
+echo "Instalando paquetes de desarrollo y compilación…"
+apt install -y \
+  dkms \
+  build-essential \
+  curl \
+  zsh
 
-# 3) Clonar y ejecutar tu script de instalación de paquetes
-REPO_URL="https://github.com/zen0-s4ma/proxmox-workstation.git"
-SCRIPT_NAME="setup-pve-workstation.sh"                    
+echo "Instalando navegador Firefox ESR…"
+apt install -y firefox-esr
 
-echo "==> Clonando repositorio ${REPO_URL}…"
-git clone "${REPO_URL}" /opt/pve-setup
-cd /opt/pve-setup
+echo "Instalando herramientas de Bluetooth…"
+apt install -y \
+  bluez \
+  bluetooth \
+  bluez-tools \
+  rfkill
 
-echo "==> Dando permisos y ejecutando ${SCRIPT_NAME}…"
-chmod +x "${SCRIPT_NAME}"
-./"${SCRIPT_NAME}"
+echo "Instalando utilidades de red y firmware USB…"
+apt install -y \
+  net-tools \
+  wireless-tools \
+  ethtool \
+  usbutils \
+  firmware-realtek
 
-# 4) Segunda ronda de actualización y limpieza final
+echo "Instalando driver Realtek AWUS036ACS (RTL88xxAU)…"
+apt install -y realtek-rtl88xxau-dkms
+
+echo "Instalando controladores NVIDIA y CUDA…"
+apt install -y \
+  nvidia-driver \
+  nvidia-cuda-toolkit \
+  linux-headers-$(uname -r)
+
+echo "Instalando entornos de escritorio (GNOME, KDE, Cinnamon, XFCE)…"
+apt install -y \
+  task-gnome-desktop \
+  task-kde-desktop \
+  task-cinnamon-desktop \
+  task-xfce-desktop
+
+
+# 3) Segunda ronda de actualización y limpieza final
 echo "==> Actualización final y limpieza…"
 apt update               # refrescar índices 
 apt upgrade -y           # instalar actualizaciones sin cambiar dependencias 
