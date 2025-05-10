@@ -1,0 +1,19 @@
+auto lo
+iface lo inet loopback
+
+allow-hotplug ens33
+allow-hotplug enp4s0
+
+iface ens33 inet manual
+iface enp4s0 inet manual
+
+auto vmbr0
+iface vmbr0 inet static
+    address 192.168.1.199/24
+    gateway 192.168.1.1
+    bridge-ports ens33 enp4s0
+    bridge-stp off
+    bridge-fd 0
+    dns-nameservers 8.8.8.8 1.1.1.1
+    
+source /etc/network/interfaces.d/*
