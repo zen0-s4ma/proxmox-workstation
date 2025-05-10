@@ -12,3 +12,8 @@ Importar la clave GPG de Proxmox:
 - wget -qO /etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg
 
 
+lanzar aplicaciones:
+brave-browser --no-sandbox
+
+
+
