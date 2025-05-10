@@ -82,7 +82,8 @@ apt install -y \
   xinit \
   xfce4 \
   xfce4-goodies \
-  thunar-archive-plugin gvfs-backends
+  thunar-archive-plugin gvfs-backends \
+  cinnamon
 
 echo  
 echo "==> Instalando complementos VMWare…"
