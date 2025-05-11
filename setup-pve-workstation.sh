@@ -198,7 +198,7 @@ sudo apt install -y mate-desktop-environment mate-desktop-environment-extras
 echo
 sudo apt install -y arc-theme papirus-icon-theme numix-gtk-theme numix-icon-theme-circle materia-gtk-theme orchis-gtk-theme \
                breeze-icon-theme gnome-icon-theme oxygen-icon-theme
-               
+
 ###############################################################################
 # 11) TRepositorios y paquetes kali
 ###############################################################################
@@ -233,7 +233,32 @@ echo "==> Instalando Tor y Tor Browser Launcher…"
 apt install -y tor torbrowser-launcher proxychains
 
 ###############################################################################
-# 14) Limpieza final
+# 14) Instalar Ollama (IA local)
+###############################################################################
+echo
+echo "==> Instalando Ollama (IA local)..."
+curl -fsSL https://ollama.com/install.sh | sudo bash
+
+###############################################################################
+# 15) Instalar Docker CE y componer entorno de contenedores
+###############################################################################
+echo
+echo "==> Instalando Docker Engine y herramientas..."
+# Añadir clave y repo de Docker
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] \
+https://download.docker.com/linux/debian \
+$(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+# Instalar Docker
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+# Añadir usuario al grupo docker
+sudo usermod -aG docker $USER_NAME
+
+###############################################################################
+# 99) Limpieza final
 ###############################################################################
 echo
 echo "==> Finalizando: update…"
