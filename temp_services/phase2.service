@@ -1,0 +1,14 @@
+[Unit]
+Description=Configuración Proxmox Workstation - Fase 2 (instalación de paquetes principales)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=zenosama
+WorkingDirectory=/home/zenosama
+Environment="HOME=/home/zenosama"
+ExecStart=/opt/pve-setup/setup-pve-workstation-phase2.sh
+
+[Install]
+WantedBy=multi-user.target

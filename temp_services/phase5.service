@@ -1,0 +1,14 @@
+[Unit]
+Description=Configuración Proxmox Workstation - Fase 5 (Finalizado-Resumen)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=zenosama
+WorkingDirectory=/home/zenosama
+Environment="HOME=/home/zenosama"
+ExecStart=/opt/pve-setup/setup-pve-workstation-phase5.sh
+
+[Install]
+WantedBy=multi-user.target
