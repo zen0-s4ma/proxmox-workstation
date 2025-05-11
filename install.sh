@@ -31,7 +31,7 @@ cp -f ./setup_scripts/setup-pve-workstation-phase3.sh /opt/pve-setup/setup-pve-w
 cp -f ./setup_scripts/setup-pve-workstation-phase4.sh /opt/pve-setup/setup-pve-workstation-phase4.sh
 cp -f ./setup_scripts/setup-pve-workstation-phase5.sh /opt/pve-setup/setup-pve-workstation-phase5.sh
 cp -f ./setup_scripts/setup-orchestation.sh /usr/local/bin/setup-orchestation.sh
-sudo chmod +x /usr/local/bin/schedule-next.sh
+sudo chmod +x /usr/local/bin/setup-orchestation.sh
 
 echo
 echo "==> Dando permisos de ejecucion a los scripts..."
