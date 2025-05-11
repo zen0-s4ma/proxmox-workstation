@@ -20,7 +20,7 @@ fi
 ###############################################################################
 echo
 echo "==> Instalando paquetes de desarrollo y compilación…"
-apt install -y \
+sudo apt install -y \
   dkms build-essential curl zsh git wget python3 python3-pip \
   gcc g++ clang lldb lld golang rustc cargo dpkg gnupg2 \
   apt-transport-https ca-certificates kitty xfce4-terminal
@@ -40,25 +40,25 @@ echo "==> Shell con la que se está ejecutando el script: ${running_shell}"
 ###############################################################################
 echo
 echo "==> Instalando navegador y editores…"
-apt install -y firefox-esr nano vim neovim gedit
+sudo apt install -y firefox-esr nano vim neovim gedit
 
 echo
 echo "==> Instalando navegador de terceros: Brave…"
-curl -fsS https://dl.brave.com/install.sh | sh
+sudo curl -fsS https://dl.brave.com/install.sh | sh
 
 ###############################################################################
 # 3) Bluetooth
 ###############################################################################
 echo
 echo "==> Instalando herramientas de Bluetooth…"
-apt install -y bluez bluetooth bluez-tools rfkill
+sudo apt install -y bluez bluetooth bluez-tools rfkill
 
 ###############################################################################
 # 4) Utilidades de red y USB
 ###############################################################################
 echo
 echo "==> Instalando utilidades de red y firmware USB…"
-apt install -y net-tools wireless-tools ethtool usbutils dnsutils \
+sudo apt install -y net-tools wireless-tools ethtool usbutils dnsutils \
                iputils-ping whois traceroute rsync
 
 ###############################################################################
@@ -66,35 +66,35 @@ apt install -y net-tools wireless-tools ethtool usbutils dnsutils \
 ###############################################################################
 echo
 echo "==> Instalando herramientas de archivado y compactación…"
-apt install -y unzip p7zip-full rar unrar zip tar gzip bzip2 xz-utils
+sudo apt install -y unzip p7zip-full rar unrar zip tar gzip bzip2 xz-utils
 
 ###############################################################################
 # 6) Utilidades de sistema
 ###############################################################################
 echo
 echo "==> Instalando utilidades de sistema adicionales…"
-apt install -y htop neofetch tree jq xclip lsof
+sudo apt install -y htop neofetch tree jq xclip lsof
              
 ###############################################################################
 # 7) Complementos VMWare
 ###############################################################################
 echo
 echo "==> Instalando complementos VMWare…"
-apt install -y open-vm-tools open-vm-tools-desktop xserver-xorg-video-vmware gnome-software
+sudo apt install -y open-vm-tools open-vm-tools-desktop xserver-xorg-video-vmware gnome-software
 
 ###############################################################################
 # 8) Tor, TorBrowser y Proxychains
 ###############################################################################
 echo
 echo "==> Instalando Tor y Tor Browser Launcher…"
-apt install -y tor torbrowser-launcher proxychains
+sudo apt install -y tor torbrowser-launcher proxychains
 
 ###############################################################################
 # 9) Instalar Ollama (IA local)
 ###############################################################################
 echo
 echo "==> Instalando Ollama (IA local)..."
-curl -fsSL https://ollama.com/install.sh | sudo bash
+sudo curl -fsSL https://ollama.com/install.sh | sudo bash
 
 ###############################################################################
 # 10) Instalar Docker CE y componer entorno de contenedores
@@ -119,33 +119,33 @@ sudo usermod -aG docker $USER_NAME
 ###############################################################################
 echo
 echo "==> Finalizando: update…"
-apt update
+sudo apt update
 echo "==> Finalizando: upgrade…"
-apt upgrade -y
+sudo apt upgrade -y
 echo "==> Finalizando: full-upgrade…"
-apt full-upgrade -y
+sudo apt full-upgrade -y
 echo "==> Finalizando: autoremove…"
-apt autoremove -y
+sudo apt autoremove -y
 echo "==> Finalizando: autoclean…"
-apt autoclean -y
+sudo apt autoclean -y
 echo
 echo "==> Revisando dependencias…"
 sudo dpkg --configure -a
-apt install -f -y
+sudo apt install -f -y
 
 ###############################################################################
 # 99.a) Creando servicio para el proximo reinicio
 ###############################################################################
 echo
 echo "==> Copiando servicio a systemd..."
-cp -f /opt/pve-setup/phase3.service /etc/systemd/system/phase3.service
-systemctl daemon-reload
-systemctl enable phase3.service
+sudo cp -f /opt/pve-setup/phase3.service /etc/systemd/system/phase3.service
+sudo systemctl daemon-reload
+sudo systemctl enable phase3.service
 
 ###############################################################################
 # 99.b) Reinicio
 ###############################################################################
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 3..."
-reboot
+sudo reboot
 
 

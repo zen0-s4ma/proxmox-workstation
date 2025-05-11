@@ -10,7 +10,7 @@ USER_NAME="zenosama"
 ###############################################################################
 echo
 echo "==> Instalando NVIDIA…"
-apt install -y nvidia-driver
+sudo apt install -y nvidia-driver
 
 ###############################################################################
 # 2) Escritorios, temas e iconos) y gestor LightDM
@@ -53,12 +53,12 @@ sudo systemctl set-default graphical.target
 ###############################################################################
 echo
 echo "==> Copiando servicio a systemd..."
-cp -f /opt/pve-setup/phase4.service /etc/systemd/system/phase4.service
-systemctl daemon-reload
-systemctl enable phase4.service
+sudo cp -f /opt/pve-setup/phase4.service /etc/systemd/system/phase4.service
+sudo systemctl daemon-reload
+sudo systemctl enable phase4.service
 
 ###############################################################################
 # 99.b) Reinicio
 ###############################################################################
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 4..."
-reboot
+sudo reboot

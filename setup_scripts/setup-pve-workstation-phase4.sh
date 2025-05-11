@@ -16,9 +16,9 @@ echo "==> Comenzando ejecución de post-instalación como usuario $(id -un)..."
 echo "==> Clonando repositorio auto-bspwm y ejecutando instalación..."
 git clone https://github.com/RaulSanchezzt/auto-bspwm.git ~/auto-bspwm
 cd ~/auto-bspwm
-chmod +x setup.sh
+sudo chmod +x setup.sh
 ./setup.sh || { echo "(Error) Falló la instalación de auto-bspwm"; exit 1; }
-cd "$HOME"
+sudo cd "$HOME"
 
 echo
 echo "==> Clonando repositorio de dotfiles y aplicando configuración..."
@@ -36,12 +36,12 @@ cd "$HOME"
 ###############################################################################
 echo
 echo "==> Copiando servicio a systemd..."
-cp -f /opt/pve-setup/phase5.service /etc/systemd/system/phase5.service
-systemctl daemon-reload
-systemctl enable phase5.service
+sudo cp -f /opt/pve-setup/phase5.service /etc/systemd/system/phase5.service
+sudo systemctl daemon-reload
+sudo systemctl enable phase5.service
 
 ###############################################################################
 # 99.b) Reinicio
 ###############################################################################
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 5..."
-reboot
+sudo reboot
