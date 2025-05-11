@@ -142,8 +142,18 @@ echo "==> Shell Actual: $SHELL"
 echo
 echo "==> Copiando servicio a systemd..."
 cp -f /opt/pve-setup/phase2.service /etc/systemd/system/phase2.service
-sudo -u zenosama systemctl --user daemon-reload
-sudo -u zenosama systemctl --user enable phase2.service
+
+echo "==> Configurando inicio de servicios para el usuario $USER_NAME..."
+
+# Habilitar linger para que los servicios del usuario puedan ejecutarse sin sesión activa
+loginctl enable-linger $USER_NAME
+
+# Definir XDG_RUNTIME_DIR y recargar systemd para el usuario
+USER_ID=$(id -u $USER_NAME)
+export XDG_RUNTIME_DIR="/run/user/$USER_ID"
+
+sudo -u $USER_NAME XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR systemctl --user daemon-reload
+sudo -u $USER_NAME XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR systemctl --user enable phase2.service
 
 ###############################################################################
 # 99.b) Reinicio
