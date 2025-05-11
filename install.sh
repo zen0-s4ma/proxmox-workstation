@@ -159,5 +159,6 @@ sudo -u $USER_NAME XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR systemctl --user enable phas
 # 99.b) Reinicio
 ###############################################################################
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 2..."
+echo "...PULSA CUALQUIER TECLA PARA CONTINUAR..."
 read -n 1 -s
 sudo reboot
