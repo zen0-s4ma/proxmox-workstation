@@ -101,6 +101,7 @@ fi
 
 echo
 echo "==> Copiando servicios de instalacion al usuario $USER_NAME..."
+mkdir -p /home/$USER_NAME/.config/systemd/user
 chown -R $USER_NAME:$USER_NAME /home/$USER_NAME/.config/systemd
 cp -f ./temp_services/phase2.service /home/$USER_NAME/.config/systemd/user/phase2.service
 cp -f ./temp_services/phase3.service /home/$USER_NAME/.config/systemd/user/phase3.service
