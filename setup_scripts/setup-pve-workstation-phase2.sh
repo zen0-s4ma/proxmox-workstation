@@ -146,6 +146,7 @@ sudo systemctl enable phase3.service
 # 99.b) Reinicio
 ###############################################################################
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 3..."
+read -n 1 -s
 sudo reboot
 
 

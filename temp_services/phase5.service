@@ -1,7 +1,6 @@
 [Unit]
 Description=Configuración Proxmox Workstation - Fase 5 (Finalizado-Resumen)
-After=network-online.target
-Wants=network-online.target
+After=graphical-session.target
 
 [Service]
 Type=oneshot
@@ -10,6 +9,7 @@ StandardError=tty
 TTYPath=/dev/tty1
 TTYReset=yes
 TTYVHangup=yes
+WorkingDirectory=/home/zenosama
 ExecStart=/opt/pve-setup/setup-pve-workstation-phase5.sh
 
 [Install]

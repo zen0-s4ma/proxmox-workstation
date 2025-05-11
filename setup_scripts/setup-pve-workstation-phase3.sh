@@ -61,4 +61,5 @@ sudo systemctl enable phase4.service
 # 99.b) Reinicio
 ###############################################################################
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 4..."
+read -n 1 -s
 sudo reboot

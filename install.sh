@@ -99,6 +99,14 @@ if [[ $EUID -eq 0 && -z "${RUN_AS_ZENO:-}" ]]; then
   fi
 fi
 
+echo
+echo "==> Copiando servicios de instalacion al usuario $USER_NAME..."
+chown -R $USER_NAME:$USER_NAME /home/$USER_NAME/.config/systemd
+cp -f ./temp_services/phase2.service /home/$USER_NAME/.config/systemd/user/phase2.service
+cp -f ./temp_services/phase3.service /home/$USER_NAME/.config/systemd/user/phase3.service
+cp -f ./temp_services/phase4.service /home/$USER_NAME/.config/systemd/user/phase4.service
+cp -f ./temp_services/phase5.service /home/$USER_NAME/.config/systemd/user/phase5.service
+
 ###############################################################################
 # 6) Actualizar sistema base y kernel Proxmox VE
 ###############################################################################
@@ -133,11 +141,12 @@ echo "==> Shell Actual: $SHELL"
 echo
 echo "==> Copiando servicio a systemd..."
 cp -f /opt/pve-setup/phase2.service /etc/systemd/system/phase2.service
-systemctl daemon-reload
-systemctl enable phase2.service
+su - zenosama
+systemctl --user daemon-reload
+systemctl --user enable phase2.service
 
 ###############################################################################
 # 99.b) Reinicio
 ###############################################################################
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 2..."
-reboot
+sudo reboot
