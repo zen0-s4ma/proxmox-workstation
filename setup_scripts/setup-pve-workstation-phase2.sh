@@ -21,20 +21,10 @@ fi
 echo
 echo "==> Instalando paquetes de desarrollo y compilación…"
 sudo apt install -y \
-  dkms build-essential curl zsh git wget python3 python3-pip \
+  dkms build-essential curl git wget python3 python3-pip \
   gcc g++ clang lldb lld golang rustc cargo dpkg gnupg2 \
   apt-transport-https ca-certificates kitty xfce4-terminal
   
-if [[ -x /usr/bin/zsh ]]; then
-  echo "==> Estableciendo zsh como shell por defecto para ${USER_NAME}…"
-  sudo usermod -s /usr/bin/zsh "$USER_NAME"
-fi
-
-configured_shell=$(getent passwd "$USER_NAME" | cut -d: -f7)
-running_shell=$(ps -p $$ -o comm=)
-echo "==> Shell de inicio configurada para ${USER_NAME}: ${configured_shell}"
-echo "==> Shell con la que se está ejecutando el script: ${running_shell}"
-
 ###############################################################################
 # 2) Instalar navegador y editores
 ###############################################################################
@@ -134,18 +124,18 @@ sudo dpkg --configure -a
 sudo apt install -f -y
 
 ###############################################################################
-# 99.a) Creando servicio para el proximo reinicio
+# 99.a) Llamando al orquestador para la ejecucion del script en el proximo reinicio
 ###############################################################################
 echo
-echo "==> Copiando servicio a systemd..."
-cp -f /opt/pve-setup/phase3.service /etc/systemd/system/phase3.service
-sudo -u zenosama systemctl --user daemon-reload
-sudo -u zenosama systemctl --user enable phase3.service
+echo "==> llamamos al orquestador para configurar el proximo reinicio..."
+/usr/local/bin/setup-orchestation.sh "$USER_NAME" "/opt/pve-setup/setup-pve-workstation-phase3.sh"
 
-###############################################################################
+##############################################################################
 # 99.b) Reinicio
 ###############################################################################
-echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 3..."
+echo
+echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 2..."
+echo "...PULSA CUALQUIER TECLA PARA CONTINUAR..."
 read -n 1 -s
 sudo reboot
 

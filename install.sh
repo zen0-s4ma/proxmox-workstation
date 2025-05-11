@@ -30,6 +30,8 @@ cp -f ./setup_scripts/setup-pve-workstation-phase2.sh /opt/pve-setup/setup-pve-w
 cp -f ./setup_scripts/setup-pve-workstation-phase3.sh /opt/pve-setup/setup-pve-workstation-phase3.sh
 cp -f ./setup_scripts/setup-pve-workstation-phase4.sh /opt/pve-setup/setup-pve-workstation-phase4.sh
 cp -f ./setup_scripts/setup-pve-workstation-phase5.sh /opt/pve-setup/setup-pve-workstation-phase5.sh
+cp -f ./setup_scripts/setup-orchestation.sh /usr/local/bin/setup-orchestation.sh
+sudo chmod +x /usr/local/bin/schedule-next.sh
 
 echo
 echo "==> Dando permisos de ejecucion a los scripts..."
@@ -69,15 +71,7 @@ echo "==> [root] Reiniciando la interfaz de red…"
 systemctl restart networking
 
 ###############################################################################
-# 4) Actualizar sistema base y kernel Proxmox VE
-###############################################################################
-echo
-echo "==> Instalando Sudo y ZSH…"
-apt update
-apt install -y zsh
-
-###############################################################################
-# 5) Instalacion de SUDO, creacion de usuario y permisos
+# 4) Instalacion de SUDO, creacion de usuario y permisos
 ###############################################################################
 if [[ $EUID -eq 0 && -z "${RUN_AS_ZENO:-}" ]]; then
   echo
@@ -85,13 +79,12 @@ if [[ $EUID -eq 0 && -z "${RUN_AS_ZENO:-}" ]]; then
   if ! command -v sudo &>/dev/null; then
     apt update -qq
     apt install -y sudo
-    useradd -m -s /usr/bin/zsh -G sudo "$(id -un)"
   fi
   
   echo
   echo "==> [root] Creando usuario '$USER_NAME'…"
   if ! id -u "$USER_NAME" &>/dev/null; then
-    useradd -m -s /usr/bin/zsh -G sudo "$USER_NAME"
+    useradd -m -s /bin/bash -G sudo "$USER_NAME"
     echo "$USER_NAME:$USER_PASS" | chpasswd
     echo "$USER_NAME ALL=(ALL) NOPASSWD:ALL" \
          > /etc/sudoers.d/99-$USER_NAME-nopasswd
@@ -99,17 +92,8 @@ if [[ $EUID -eq 0 && -z "${RUN_AS_ZENO:-}" ]]; then
   fi
 fi
 
-echo
-echo "==> Copiando servicios de instalacion al usuario $USER_NAME..."
-mkdir -p /home/$USER_NAME/.config/systemd/user
-chown -R $USER_NAME:$USER_NAME /home/$USER_NAME/.config/systemd
-cp -f ./temp_services/phase2.service /home/$USER_NAME/.config/systemd/user/phase2.service
-cp -f ./temp_services/phase3.service /home/$USER_NAME/.config/systemd/user/phase3.service
-cp -f ./temp_services/phase4.service /home/$USER_NAME/.config/systemd/user/phase4.service
-cp -f ./temp_services/phase5.service /home/$USER_NAME/.config/systemd/user/phase5.service
-
 ###############################################################################
-# 6) Actualizar sistema base y kernel Proxmox VE
+# 5) Actualizar sistema base y kernel Proxmox VE
 ###############################################################################
 echo
 echo "==> [${USER_NAME}] Actualizando: update…"
@@ -125,7 +109,7 @@ echo "==> [${USER_NAME}] Actualizando: pve-headers"
 apt install -y pve-headers
 
 ###############################################################################
-# 7) Comprobaciones
+# 6) Comprobaciones
 ###############################################################################
 echo "==> Comprobacion de variables…"
 echo "==> Usuario actual: $(id -un)"
@@ -137,27 +121,16 @@ echo "==> Path Actualizado: $(pwd)"
 echo "==> Shell Actual: $SHELL"
 
 ###############################################################################
-# 99.a) Creando servicio para el proximo reinicio
+# 99.a) Llamando al orquestador para la ejecucion del script en el proximo reinicio
 ###############################################################################
 echo
-echo "==> Copiando servicio a systemd..."
-cp -f /opt/pve-setup/phase2.service /etc/systemd/system/phase2.service
+echo "==> llamamos al orquestador para configurar el proximo reinicio..."
+/usr/local/bin/setup-orchestation.sh "$USER_NAME" "/opt/pve-setup/setup-pve-workstation-phase2.sh"
 
-echo "==> Configurando inicio de servicios para el usuario $USER_NAME..."
-
-# Habilitar linger para que los servicios del usuario puedan ejecutarse sin sesión activa
-loginctl enable-linger $USER_NAME
-
-# Definir XDG_RUNTIME_DIR y recargar systemd para el usuario
-USER_ID=$(id -u $USER_NAME)
-export XDG_RUNTIME_DIR="/run/user/$USER_ID"
-
-sudo -u $USER_NAME XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR systemctl --user daemon-reload
-sudo -u $USER_NAME XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR systemctl --user enable phase2.service
-
-###############################################################################
+##############################################################################
 # 99.b) Reinicio
 ###############################################################################
+echo
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 2..."
 echo "...PULSA CUALQUIER TECLA PARA CONTINUAR..."
 read -n 1 -s

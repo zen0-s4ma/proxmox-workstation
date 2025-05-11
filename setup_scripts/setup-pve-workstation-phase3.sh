@@ -49,16 +49,17 @@ echo "==> [Fase 2] Habilitando inicio gráfico en el arranque (graphical.target)
 sudo systemctl set-default graphical.target
 
 ###############################################################################
-# 99.a) Creando servicio para el proximo reinicio
+# 99.a) Llamando al orquestador para la ejecucion del script en el proximo reinicio
 ###############################################################################
 echo
-echo "==> Copiando servicio a systemd..."
-cp -f /opt/pve-setup/phase4.service /etc/systemd/system/phase4.service
-sudo -u zenosama systemctl --user daemon-reload
-sudo -u zenosama systemctl --user enable phase4.service
-###############################################################################
+echo "==> llamamos al orquestador para configurar el proximo reinicio..."
+/usr/local/bin/setup-orchestation.sh "$USER_NAME" "/opt/pve-setup/setup-pve-workstation-phase4.sh"
+
+##############################################################################
 # 99.b) Reinicio
 ###############################################################################
-echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 4..."
+echo
+echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 2..."
+echo "...PULSA CUALQUIER TECLA PARA CONTINUAR..."
 read -n 1 -s
 sudo reboot

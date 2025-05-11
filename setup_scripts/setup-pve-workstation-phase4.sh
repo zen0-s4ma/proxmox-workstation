@@ -32,16 +32,17 @@ cd ~/dotfiles && chmod +x link.sh && ./link.sh || echo "(Aviso) No se ejecutó l
 cd "$HOME"
 
 ###############################################################################
-# 99.a) Creando servicio para el proximo reinicio
+# 99.a) Llamando al orquestador para la ejecucion del script en el proximo reinicio
 ###############################################################################
 echo
-echo "==> Copiando servicio a systemd..."
-cp -f /opt/pve-setup/phase5.service /etc/systemd/system/phase5.service
-sudo -u zenosama systemctl --user daemon-reload
-sudo -u zenosama systemctl --user enable phase5.service
+echo "==> llamamos al orquestador para configurar el proximo reinicio..."
+/usr/local/bin/setup-orchestation.sh "$USER_NAME" "/opt/pve-setup/setup-pve-workstation-phase5.sh"
 
-###############################################################################
+##############################################################################
 # 99.b) Reinicio
 ###############################################################################
-echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 5..."
+echo
+echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 2..."
+echo "...PULSA CUALQUIER TECLA PARA CONTINUAR..."
+read -n 1 -s
 sudo reboot
