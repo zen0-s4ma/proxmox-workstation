@@ -9,7 +9,7 @@ export HOME="/home/zenosama"
 cd "$HOME"
 
 ###############################################################################
-# 0) Instalacion de Auto-bspwm
+# 1) Instalacion de Auto-bspwm
 ###############################################################################
 echo
 echo "==> Comenzando ejecución de post-instalación como usuario $(id -un)..."
@@ -30,3 +30,18 @@ else
 fi
 cd ~/dotfiles && chmod +x link.sh && ./link.sh || echo "(Aviso) No se ejecutó link.sh de dotfiles"
 cd "$HOME"
+
+###############################################################################
+# 99.a) Creando servicio para el proximo reinicio
+###############################################################################
+echo
+echo "==> Copiando servicio a systemd..."
+cp -f /opt/pve-setup/phase5.service /etc/systemd/system/phase5.service
+systemctl daemon-reload
+systemctl enable phase5.service
+
+###############################################################################
+# 99.b) Reinicio
+###############################################################################
+echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 5..."
+reboot

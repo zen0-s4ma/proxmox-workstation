@@ -47,3 +47,18 @@ sudo apt install -y arc-theme papirus-icon-theme numix-gtk-theme numix-icon-them
 echo
 echo "==> [Fase 2] Habilitando inicio gráfico en el arranque (graphical.target)..."
 sudo systemctl set-default graphical.target
+
+###############################################################################
+# 99.a) Creando servicio para el proximo reinicio
+###############################################################################
+echo
+echo "==> Copiando servicio a systemd..."
+cp -f /opt/pve-setup/phase4.service /etc/systemd/system/phase4.service
+systemctl daemon-reload
+systemctl enable phase4.service
+
+###############################################################################
+# 99.b) Reinicio
+###############################################################################
+echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 4..."
+reboot

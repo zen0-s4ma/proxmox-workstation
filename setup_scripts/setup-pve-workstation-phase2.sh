@@ -133,4 +133,19 @@ echo "==> Revisando dependencias…"
 sudo dpkg --configure -a
 apt install -f -y
 
+###############################################################################
+# 99.a) Creando servicio para el proximo reinicio
+###############################################################################
+echo
+echo "==> Copiando servicio a systemd..."
+cp -f /opt/pve-setup/phase3.service /etc/systemd/system/phase3.service
+systemctl daemon-reload
+systemctl enable phase3.service
+
+###############################################################################
+# 99.b) Reinicio
+###############################################################################
+echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 3..."
+reboot
+
 

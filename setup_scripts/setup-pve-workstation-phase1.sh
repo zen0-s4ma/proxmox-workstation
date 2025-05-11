@@ -9,23 +9,40 @@ USER_PASS="zenosama"
 #########################################################################
 # 1) Copiar ficheros de configuración
 #########################################################################
-declare -A files=(
-  ["sources.list"]="/etc/apt/sources.list"
-  ["ceph.list"]="/etc/apt/sources.list.d/ceph.list"
-  ["pve-enterprise.list"]="/etc/apt/sources.list.d/pve-enterprise.list"
-  ["resolv.conf"]="/etc/resolv.conf"
-  ["interfaces"]="/etc/network/interfaces"
-)
+echo
+echo "==> Creando bakups de los ficheros de configuracion..."
+cp -f /etc/apt/sources.list.d/ceph.list /etc/apt/sources.list.d/ceph.list.bak
+cp -f /etc/network/interfaces /etc/network/interfaces.bak
+cp -f /etc/resolv.conf /etc/resolv.conf.bak
+cp -f /etc/apt/sources.list /etc/apt/sources.list.bak
 
 echo
-echo "==> [root] Copiando ficheros de configuracion y haciendo backups…"
-for name in "${!files[@]}"; do
-  src="config_files/$name"
-  dst="${files[$name]}"
-  [[ -f "$dst" ]] && { cp -f "$dst" "${dst}.bak"; echo "[Backup] $dst -> ${dst}.bak"; }
-  cp -f "$src" "$dst"
-  echo "[Copy] $src -> $dst"
-done
+echo "==> Copiando ficheros de configuracion..."
+cp -f ./config_files/ceph.list /etc/apt/sources.list.d/ceph.list
+cp -f ./config_files/interfaces /etc/network/interfaces
+cp -f ./config_files/resolv.conf /etc/resolv.conf
+cp -f ./config_files/sources.list /etc/apt/sources.list
+
+echo
+echo "==> Copiando scripts de instalacion..."
+cp -f ./setup_scripts/setup-pve-workstation-phase2.sh /opt/pve-setup/setup-pve-workstation-phase2.sh
+cp -f ./setup_scripts/setup-pve-workstation-phase3.sh /opt/pve-setup/setup-pve-workstation-phase3.sh
+cp -f ./setup_scripts/setup-pve-workstation-phase4.sh /opt/pve-setup/setup-pve-workstation-phase4.sh
+cp -f ./setup_scripts/setup-pve-workstation-phase5.sh /opt/pve-setup/setup-pve-workstation-phase5.sh
+
+echo
+echo "==> Dando permisos de ejecucion a los scripts..."
+chmod +x /opt/pve-setup/setup-pve-workstation-phase2.sh
+chmod +x /opt/pve-setup/setup-pve-workstation-phase3.sh
+chmod +x /opt/pve-setup/setup-pve-workstation-phase4.sh
+chmod +x /opt/pve-setup/setup-pve-workstation-phase5.sh
+
+echo
+echo "==> Copiando servicios de instalacion..."
+cp -f ./temp_services/phase2-service /opt/pve-setup/phase2-service
+cp -f ./temp_services/phase3-service /opt/pve-setup/phase3-service
+cp -f ./temp_services/phase4-service /opt/pve-setup/phase4-service
+cp -f ./temp_services/phase5-service /opt/pve-setup/phase5-service
 
 #########################################################################
 # 2) Reiniciar red
@@ -78,7 +95,7 @@ echo -e "Package: *\nPin: release o=Kali\nPin-Priority: 50" | \
      sudo tee /etc/apt/preferences.d/limit-kali
 
 ###############################################################################
-# 1) Actualizar sistema base y kernel Proxmox VE
+# 6) Actualizar sistema base y kernel Proxmox VE
 ###############################################################################
 echo
 echo "==> [${USER_NAME}] Actualizando: update…"
@@ -94,7 +111,7 @@ echo "==> [${USER_NAME}] Actualizando: pve-headers"
 apt install -y pve-headers
 
 ###############################################################################
-# 6) Comprobaciones
+# 7) Comprobaciones
 ###############################################################################
 echo "==> Comprobacion de variables…"
 echo "==> Usuario actual: $(id -un)"
@@ -106,28 +123,11 @@ echo "==> Path Actualizado: $(pwd)"
 echo "==> Shell Actual: $SHELL"
 
 ###############################################################################
-# 7) Copiando scripts y servicios
-###############################################################################
-echo
-echo "==> Copiando scripts de instalacion..."
-cp -f ./setup_scripts/setup-pve-workstation-phase2.sh /opt/pve-setup/setup-pve-workstation-phase2.sh
-cp -f ./setup_scripts/setup-pve-workstation-phase3.sh /opt/pve-setup/setup-pve-workstation-phase3.sh
-cp -f ./setup_scripts/setup-pve-workstation-phase4.sh /opt/pve-setup/setup-pve-workstation-phase4.sh
-cp -f ./setup_scripts/setup-pve-workstation-phase5.sh /opt/pve-setup/setup-pve-workstation-phase5.sh
-
-echo
-echo "==> Copiando servicios de instalacion..."
-cp -f ./temp_services/phase2-service /opt/pve-setup/phase2-service
-cp -f ./temp_services/phase3-service /opt/pve-setup/phase3-service
-cp -f ./temp_services/phase4-service /opt/pve-setup/phase4-service
-cp -f ./temp_services/phase5-service /opt/pve-setup/phase5-service
-
-###############################################################################
 # 99.a) Creando servicio para el proximo reinicio
 ###############################################################################
 echo
 echo "==> Copiando servicio a systemd..."
-cp -f /opt/pve-setup/phase2-service /etc/systemd/system/phase2.service
+cp -f /opt/pve-setup/phase2.service /etc/systemd/system/phase2.service
 systemctl daemon-reload
 systemctl enable phase2.service
 
