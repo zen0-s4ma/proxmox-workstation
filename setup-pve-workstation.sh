@@ -63,7 +63,7 @@ if [[ $EUID -eq 0 && -z "${RUN_AS_ZENO:-}" ]]; then
   exec sudo -u "$USER_NAME" -H RUN_AS_ZENO=1 bash "$0" "$@"
 fi
 ###############################################################################
-# 2ª EJECUCIÓN  (usuario: zenosito)  →  PASOS 1 … fin
+# 2ª EJECUCIÓN  (usuario: zenosito)  →  Comprobaciones previas
 ###############################################################################
 
 # Comprobación rápida
@@ -104,7 +104,7 @@ echo "==> Instalando paquetes de desarrollo y compilación…"
 apt install -y \
   dkms build-essential curl zsh git wget python3 python3-pip \
   gcc g++ clang lldb lld golang rustc cargo dpkg gnupg2 \
-  apt-transport-https ca-certificates kitty
+  apt-transport-https ca-certificates kitty xfce4-terminal
   
 if [[ -x /usr/bin/zsh ]]; then
   echo "==> Estableciendo zsh como shell por defecto para ${USER_NAME}…"
@@ -171,21 +171,36 @@ echo "==> Instalando NVIDIA…"
 apt install -y nvidia-driver
 
 ###############################################################################
-# 10) LightDM
+# 10) Escritorios, temas e iconos) y gestor LightDM
 ###############################################################################
 echo
 echo "==> Instalando LightDM…"
-apt install -y lightdm
-
-###############################################################################
-# 11) Escritorios XFCE4 y Cinnamon
-###############################################################################
+sudo apt install -y lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings arctica-greeter arctica-greeter-theme-debian
 echo
-echo "==> Instalando entornos de escritorio…"
-apt install -y dbus-x11 x11-xserver-utils xinit xfce4 xfce4-goodies \
-               thunar-archive-plugin gvfs-backends cinnamon
+echo "==> Instalando servidor grafico…"
+sudo apt install -y dbus-x11 x11-xserver-utils xinit
+echo
+echo "==> Instalando Xfce4…"
+sudo apt install -y xfce4 xfce4-goodies xfce4-whiskermenu-plugin xfce4-screenshooter xfce4-taskmanager xfce4-power-manager \
+               thunar-archive-plugin thunar-volman gvfs-backends xfce4-genmon-plugin xfce4-weather-plugin \
+               xfce4-pulseaudio-plugin xfce4-netload-plugin xfce4-cpugraph-plugin xfce4-battery-plugin ristretto \
+               tumbler gvfs-fuse
+echo
+echo "==> Instalando Cinnamon…"
+sudo apt install -y cinnamon cinnamon-desktop-environment cinnamon-control-center cinnamon-screensaver nemo nemo-fileroller \
+               gnome-screenshot gnome-keyring network-manager-gnome
+echo
+echo "==> Instalando Budgie…"
+sudo apt install -y budgie-desktop budgie-core
+echo
+echo "==> Instalando Mate…"
+sudo apt install -y mate-desktop-environment mate-desktop-environment-extras
+echo
+sudo apt install -y arc-theme papirus-icon-theme numix-gtk-theme numix-icon-theme-circle materia-gtk-theme orchis-gtk-theme \
+               breeze-icon-theme gnome-icon-theme oxygen-icon-theme
+               
 ###############################################################################
-# 11.1) TRepositorios y paquetes kali
+# 11) TRepositorios y paquetes kali
 ###############################################################################
 echo
 echo "==> Importando repositorio Kali…"
@@ -200,20 +215,18 @@ echo "deb [signed-by=/usr/share/keyrings/kali-archive-keyring.asc] \
 echo -e "Package: *\nPin: release o=Kali\nPin-Priority: 50" | \
      sudo tee /etc/apt/preferences.d/limit-kali
 
+echo "==> Actualizando listas de paquetes con los repositorio de Kali…"
 sudo apt update
-
-sudo apt install -y kali-themes kali-defaults  
              
 ###############################################################################
 # 12) Complementos VMWare
 ###############################################################################
 echo
 echo "==> Instalando complementos VMWare…"
-apt install -y open-vm-tools open-vm-tools-desktop \
-               xserver-xorg-video-vmware gnome-software
+apt install -y open-vm-tools open-vm-tools-desktop xserver-xorg-video-vmware gnome-software
 
 ###############################################################################
-# 13) Tor y TorBrowser
+# 13) Tor, TorBrowser y Proxychains
 ###############################################################################
 echo
 echo "==> Instalando Tor y Tor Browser Launcher…"
