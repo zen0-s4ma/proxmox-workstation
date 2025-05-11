@@ -40,10 +40,10 @@ chmod +x /opt/pve-setup/setup-pve-workstation-phase5.sh
 
 echo
 echo "==> Copiando servicios de instalacion..."
-cp -f ./temp_services/phase2.service /opt/pve-setup/phase2-service
-cp -f ./temp_services/phase3.service /opt/pve-setup/phase3-service
-cp -f ./temp_services/phase4.service /opt/pve-setup/phase4-service
-cp -f ./temp_services/phase5.service /opt/pve-setup/phase5-service
+cp -f ./temp_services/phase2.service /opt/pve-setup/phase2.service
+cp -f ./temp_services/phase3.service /opt/pve-setup/phase3.service
+cp -f ./temp_services/phase4.service /opt/pve-setup/phase4.service
+cp -f ./temp_services/phase5.service /opt/pve-setup/phase5.service
 
 ###############################################################################
 # 2) Agregar Repositorios de kali
@@ -80,6 +80,7 @@ apt install -y zsh
 # 5) Instalacion de SUDO, creacion de usuario y permisos
 ###############################################################################
 if [[ $EUID -eq 0 && -z "${RUN_AS_ZENO:-}" ]]; then
+  echo
   echo "==> [root] Instalando sudo…"
   if ! command -v sudo &>/dev/null; then
     apt update -qq
@@ -87,6 +88,7 @@ if [[ $EUID -eq 0 && -z "${RUN_AS_ZENO:-}" ]]; then
     useradd -m -s /usr/bin/zsh -G sudo "$(id -un)"
   fi
   
+  echo
   echo "==> [root] Creando usuario '$USER_NAME'…"
   if ! id -u "$USER_NAME" &>/dev/null; then
     useradd -m -s /usr/bin/zsh -G sudo "$USER_NAME"
