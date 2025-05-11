@@ -10,9 +10,6 @@ StandardError=tty
 TTYPath=/dev/tty1
 TTYReset=yes
 TTYVHangup=yes
-User=zenosama
-WorkingDirectory=/home/zenosama
-Environment="HOME=/home/zenosama"
 ExecStart=/opt/pve-setup/setup-pve-workstation-phase3.sh
 
 [Install]
