@@ -142,12 +142,12 @@ echo "==> Shell Actual: $SHELL"
 echo
 echo "==> Copiando servicio a systemd..."
 cp -f /opt/pve-setup/phase2.service /etc/systemd/system/phase2.service
-su - zenosama
-systemctl --user daemon-reload
-systemctl --user enable phase2.service
+sudo -u zenosama systemctl --user daemon-reload
+sudo -u zenosama systemctl --user enable phase2.service
 
 ###############################################################################
 # 99.b) Reinicio
 ###############################################################################
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 2..."
+read -n 1 -s
 sudo reboot

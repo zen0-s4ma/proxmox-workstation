@@ -53,10 +53,9 @@ sudo systemctl set-default graphical.target
 ###############################################################################
 echo
 echo "==> Copiando servicio a systemd..."
-sudo cp -f /opt/pve-setup/phase4.service /etc/systemd/system/phase4.service
-sudo systemctl daemon-reload
-sudo systemctl enable phase4.service
-
+cp -f /opt/pve-setup/phase4.service /etc/systemd/system/phase4.service
+sudo -u zenosama systemctl --user daemon-reload
+sudo -u zenosama systemctl --user enable phase4.service
 ###############################################################################
 # 99.b) Reinicio
 ###############################################################################

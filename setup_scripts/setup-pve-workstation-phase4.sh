@@ -36,9 +36,9 @@ cd "$HOME"
 ###############################################################################
 echo
 echo "==> Copiando servicio a systemd..."
-sudo cp -f /opt/pve-setup/phase5.service /etc/systemd/system/phase5.service
-sudo systemctl daemon-reload
-sudo systemctl enable phase5.service
+cp -f /opt/pve-setup/phase5.service /etc/systemd/system/phase5.service
+sudo -u zenosama systemctl --user daemon-reload
+sudo -u zenosama systemctl --user enable phase5.service
 
 ###############################################################################
 # 99.b) Reinicio

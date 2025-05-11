@@ -138,9 +138,9 @@ sudo apt install -f -y
 ###############################################################################
 echo
 echo "==> Copiando servicio a systemd..."
-sudo cp -f /opt/pve-setup/phase3.service /etc/systemd/system/phase3.service
-sudo systemctl daemon-reload
-sudo systemctl enable phase3.service
+cp -f /opt/pve-setup/phase3.service /etc/systemd/system/phase3.service
+sudo -u zenosama systemctl --user daemon-reload
+sudo -u zenosama systemctl --user enable phase3.service
 
 ###############################################################################
 # 99.b) Reinicio
