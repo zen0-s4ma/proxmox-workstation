@@ -9,6 +9,7 @@ USER_PASS="zenosama"
 #########################################################################
 # 1) Copiar ficheros de configuración
 #########################################################################
+mkdir -p /opt/pve-setup
 echo
 echo "==> Creando bakups de los ficheros de configuracion..."
 cp -f /etc/apt/sources.list.d/ceph.list /etc/apt/sources.list.d/ceph.list.bak
@@ -39,47 +40,13 @@ chmod +x /opt/pve-setup/setup-pve-workstation-phase5.sh
 
 echo
 echo "==> Copiando servicios de instalacion..."
-cp -f ./temp_services/phase2-service /opt/pve-setup/phase2-service
-cp -f ./temp_services/phase3-service /opt/pve-setup/phase3-service
-cp -f ./temp_services/phase4-service /opt/pve-setup/phase4-service
-cp -f ./temp_services/phase5-service /opt/pve-setup/phase5-service
-
-#########################################################################
-# 2) Reiniciar red
-#########################################################################
-echo
-echo "==> [root] Reiniciando la interfaz de red…"
-systemctl restart networking
+cp -f ./temp_services/phase2.service /opt/pve-setup/phase2-service
+cp -f ./temp_services/phase3.service /opt/pve-setup/phase3-service
+cp -f ./temp_services/phase4.service /opt/pve-setup/phase4-service
+cp -f ./temp_services/phase5.service /opt/pve-setup/phase5-service
 
 ###############################################################################
-# 3) Actualizar sistema base y kernel Proxmox VE
-###############################################################################
-echo
-echo "==> Instalando Sudo y ZSH…"
-apt update
-apt install -y zsh
-
-###############################################################################
-# 4) Instalacion de SUDO, creacion de usuario y permisos
-###############################################################################
-if [[ $EUID -eq 0 && -z "${RUN_AS_ZENO:-}" ]]; then
-  echo "==> [root] Instalando sudo…"
-  if ! command -v sudo &>/dev/null; then
-    apt update -qq
-    apt install -y sudo
-  fi
-  useradd -m -s /usr/bin/zsh -G sudo "$(id -un)"
-  echo "==> [root] Creando usuario '$USER_NAME'…"
-  if ! id -u "$USER_NAME" &>/dev/null; then
-    useradd -m -s /usr/bin/zsh -G sudo "$USER_NAME"
-    echo "$USER_NAME:$USER_PASS" | chpasswd
-    echo "$USER_NAME ALL=(ALL) NOPASSWD:ALL" \
-         > /etc/sudoers.d/99-$USER_NAME-nopasswd
-    chmod 0440 /etc/sudoers.d/99-$USER_NAME-nopasswd
-  fi
-fi
-###############################################################################
-# 5) Agregar Repositorios de kali
+# 2) Agregar Repositorios de kali
 ###############################################################################
 echo
 echo "==> Importando repositorio Kali…"
@@ -93,6 +60,42 @@ echo "deb [signed-by=/usr/share/keyrings/kali-archive-keyring.asc] \
      sudo tee /etc/apt/sources.list.d/kali.list
 echo -e "Package: *\nPin: release o=Kali\nPin-Priority: 50" | \
      sudo tee /etc/apt/preferences.d/limit-kali
+
+#########################################################################
+# 3) Reiniciar red
+#########################################################################
+echo
+echo "==> [root] Reiniciando la interfaz de red…"
+systemctl restart networking
+
+###############################################################################
+# 4) Actualizar sistema base y kernel Proxmox VE
+###############################################################################
+echo
+echo "==> Instalando Sudo y ZSH…"
+apt update
+apt install -y zsh
+
+###############################################################################
+# 5) Instalacion de SUDO, creacion de usuario y permisos
+###############################################################################
+if [[ $EUID -eq 0 && -z "${RUN_AS_ZENO:-}" ]]; then
+  echo "==> [root] Instalando sudo…"
+  if ! command -v sudo &>/dev/null; then
+    apt update -qq
+    apt install -y sudo
+    useradd -m -s /usr/bin/zsh -G sudo "$(id -un)"
+  fi
+  
+  echo "==> [root] Creando usuario '$USER_NAME'…"
+  if ! id -u "$USER_NAME" &>/dev/null; then
+    useradd -m -s /usr/bin/zsh -G sudo "$USER_NAME"
+    echo "$USER_NAME:$USER_PASS" | chpasswd
+    echo "$USER_NAME ALL=(ALL) NOPASSWD:ALL" \
+         > /etc/sudoers.d/99-$USER_NAME-nopasswd
+    chmod 0440 /etc/sudoers.d/99-$USER_NAME-nopasswd
+  fi
+fi
 
 ###############################################################################
 # 6) Actualizar sistema base y kernel Proxmox VE
