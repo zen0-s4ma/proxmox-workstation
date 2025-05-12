@@ -17,12 +17,10 @@ echo
 echo
 echo "==> Configuración inicial completa. Reiniciando con el entorno grafico activado..."
 
-echo
-sudo systemctl stop autologin.service
-sudo systemctl enable autologin.service
-sudo systemctl disable autologin.service
-sudo systemctl set-default graphical.target
-#sudo systemctl set-default multi-user.target
+#echo
+#sudo systemctl stop autologin.service
+#sudo systemctl enable autologin.service
+#sudo systemctl disable autologin.service
 
 echo
 echo "==> Vaciando el fichero .bash_profile..."
@@ -30,6 +28,9 @@ USER_HOME=$(eval echo "~$USER_NAME")
 : > "$USER_HOME/.bash_profile"
 
 /opt/pve-setup/init_terminal.sh
+
+sudo systemctl set-default graphical.target
+#sudo systemctl set-default multi-user.target
 
 echo "...FIN DE PHASE 5 - PULSA CUALQUIER TECLA PARA CONTINUAR. ULTIMO REBOOT..."
 read -n 1 -s
