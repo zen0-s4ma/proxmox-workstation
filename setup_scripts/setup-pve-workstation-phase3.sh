@@ -20,7 +20,7 @@ echo "==> Instalando LightDM…"
 sudo apt install -y lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings arctica-greeter 
 echo
 echo "==> Instalando servidor grafico…"
-sudo apt install -y dbus-x11 x11-xserver-utils xinit
+sudo apt install -y dbus-x11 x11-xserver-utils xinit xorg
 echo
 echo "==> Instalando Xfce4…"
 sudo apt install -y desktop-base xfce4 xfce4-goodies
