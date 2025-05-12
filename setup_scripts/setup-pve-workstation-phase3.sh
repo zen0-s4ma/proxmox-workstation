@@ -18,7 +18,7 @@ sudo apt install -y nvidia-driver
 ###############################################################################
 echo
 echo "==> Instalando LightDM…"
-sudo apt install -y lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings arctica-greeter 
+sudo apt install -y lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings 
 echo
 echo "==> Instalando servidor grafico…"
 sudo apt install -y dbus-x11 x11-xserver-utils xinit xorg
