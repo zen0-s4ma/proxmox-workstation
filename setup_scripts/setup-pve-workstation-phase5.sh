@@ -22,6 +22,7 @@ sudo systemctl disable autologin.service
 #sudo systemctl set-default multi-user.target
 sudo systemctl set-default graphical.target
 sudo systemctl daemon-reload
+
 echo
 echo "==> Vaciando el fichero .bash_profile..."
 USER_HOME=$(eval echo "~$USER_NAME")
