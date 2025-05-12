@@ -9,32 +9,10 @@ HOME="/home/$USER_NAME"
 cd "$HOME"
 
 ###############################################################################
-# 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase
-###############################################################################
-echo
-echo "==> Actualizacion del .bash_profile…"
-USER_HOME=$(eval echo "~$USER_NAME")
-cp -f /opt/pve-setup/bash_profiles_phase5 "$USER_HOME/.bash_profile"
-sudo chown "$USER_NAME:$USER_NAME" /home/$USER_NAME/.bash_profile
-sudo chmod 644 /home/$USER_NAME/.bash_profile
-echo "==> .bash_profile Actualizado para lanzar la fase 5…"
-
-###############################################################################
-# 1) Instalacion de Auto-bspwm
+# 1) Post-instalacion
 ###############################################################################
 echo
 echo "==> Comenzando ejecución de post-instalación como usuario $(id -un)..."
-if [ ! -d "$HOME/auto-bspwm" ]; then
-    echo "==> Clonando repositorio auto-bspwm y ejecutando instalación..."
-    git clone https://github.com/zen0-s4ma/auto-bspwm.git "$HOME/auto-bspwm"
-    cd "$HOME/auto-bspwm"
-    sudo chmod +x setup.sh
-    sudo -u "$USER_NAME" bash -c "cd \"$HOME/auto-bspwm\" && ./setup.sh | tee /tmp/setup_log.txt" \
-        || { echo "(Error) Falló la instalación de auto-bspwm"; exit 1; }
-else
-    echo "==> El repositorio auto-bspwm ya existe. No se realiza la instalación."
-fi
-
 echo
 echo "==> Customizando ZSH..."
 /opt/pve-setup/zsh_custom.sh
@@ -43,6 +21,18 @@ echo
 echo "==> copiando el archivo .zshrc..."
 cp -f /opt/pve-setup/zshrc $HOME/.zshrc
 source ~/.zshrc
+
+###############################################################################
+# 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase
+###############################################################################
+echo
+echo "==> Actualizacion del .bash_profile…"
+chsh -s /bin/bash "$USER_NAME"
+USER_HOME=$(eval echo "~$USER_NAME")
+cp -f /opt/pve-setup/bash_profiles_phase5 "$USER_HOME/.bash_profile"
+sudo chown "$USER_NAME:$USER_NAME" /home/$USER_NAME/.bash_profile
+sudo chmod 644 /home/$USER_NAME/.bash_profile
+echo "==> .bash_profile Actualizado para lanzar la fase 5…"
 
 ##############################################################################
 # 99.b) Reinicio
