@@ -146,6 +146,6 @@ echo
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 2..."
 sudo systemctl set-default multi-user.target
 
-echo "...FIN DE INSTALL.SH - PULSA CUALQUIER TECLA PARA CONTINUAR..."
-read -n 1 -s
+#echo "...FIN DE INSTALL.SH - PULSA CUALQUIER TECLA PARA CONTINUAR..."
+#read -n 1 -s
 sudo reboot

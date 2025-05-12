@@ -10,6 +10,7 @@ USER_NAME="zenosama"
 ###############################################################################
 echo
 echo "==> Instalando NVIDIA…"
+echo
 sudo apt install -y nvidia-driver
 
 ###############################################################################
@@ -52,6 +53,6 @@ echo "==> .bash_profile Actualizado para lanzar la fase 4…"
 ###############################################################################
 echo
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 4..."
-echo "...FIN DE PHASE 3 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
-read -n 1 -s
+#echo "...FIN DE PHASE 3 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
+#read -n 1 -s
 sudo reboot
