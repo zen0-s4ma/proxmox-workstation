@@ -23,7 +23,7 @@ echo "==> Instalando paquetes de desarrollo y compilación…"
 sudo apt install -y \
   dkms build-essential curl git wget python3 python3-pip \
   gcc g++ clang lldb lld golang rustc cargo dpkg gnupg2 \
-  apt-transport-https ca-certificates kitty xfce4-terminal
+  apt-transport-https ca-certificates kitty xfce4-terminal zsh
   
 ###############################################################################
 # 2) Instalar navegador y editores
