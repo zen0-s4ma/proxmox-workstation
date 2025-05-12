@@ -40,13 +40,6 @@ chmod +x /opt/pve-setup/setup-pve-workstation-phase3.sh
 chmod +x /opt/pve-setup/setup-pve-workstation-phase4.sh
 chmod +x /opt/pve-setup/setup-pve-workstation-phase5.sh
 
-echo
-echo "==> Copiando servicios de instalacion..."
-cp -f ./temp_services/phase2.service /opt/pve-setup/phase2.service
-cp -f ./temp_services/phase3.service /opt/pve-setup/phase3.service
-cp -f ./temp_services/phase4.service /opt/pve-setup/phase4.service
-cp -f ./temp_services/phase5.service /opt/pve-setup/phase5.service
-
 ###############################################################################
 # 2) Agregar Repositorios de kali
 ###############################################################################
@@ -83,13 +76,8 @@ if [[ $EUID -eq 0 && -z "${RUN_AS_ZENO:-}" ]]; then
   
   echo
   echo "==> [root] Creando usuario '$USER_NAME'…"
-  if ! id -u "$USER_NAME" &>/dev/null; then
-    useradd -m -s /bin/bash -G sudo "$USER_NAME"
-    echo "$USER_NAME:$USER_PASS" | chpasswd
-    echo "$USER_NAME ALL=(ALL) NOPASSWD:ALL" \
-         > /etc/sudoers.d/99-$USER_NAME-nopasswd
-    chmod 0440 /etc/sudoers.d/99-$USER_NAME-nopasswd
-  fi
+  chmod +x ./setup_scripts/create_user.sh
+  ./setup_scripts/create_user.sh
 fi
 
 ###############################################################################
@@ -121,11 +109,15 @@ echo "==> Path Actualizado: $(pwd)"
 echo "==> Shell Actual: $SHELL"
 
 ###############################################################################
-# 99.a) Llamando al orquestador para la ejecucion del script en el proximo reinicio
+# 99.a) Comprobaciones
 ###############################################################################
 echo
-echo "==> llamamos al orquestador para configurar el proximo reinicio..."
-/usr/local/bin/setup-orchestation.sh "$USER_NAME" "/opt/pve-setup/setup-pve-workstation-phase2.sh"
+echo "==> Actualizacion del .bash_profile…"
+USER_HOME=$(eval echo "~$USER_NAME")
+cp -f ./config_files/bash_profiles_phase2 "$USER_HOME/.bash_profile"
+sudo chown "$USER_NAME:$USER_NAME" /home/$USER_NAME/.bash_profile
+sudo chmod 644 /home/$USER_NAME/.bash_profile
+echo "==> .bash_profile Actualizado para lanzar la fase 2…"
 
 ##############################################################################
 # 99.b) Reinicio

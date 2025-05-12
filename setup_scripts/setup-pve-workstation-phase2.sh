@@ -123,13 +123,6 @@ echo "==> Revisando dependencias…"
 sudo dpkg --configure -a
 sudo apt install -f -y
 
-###############################################################################
-# 99.a) Llamando al orquestador para la ejecucion del script en el proximo reinicio
-###############################################################################
-echo
-echo "==> llamamos al orquestador para configurar el proximo reinicio..."
-/usr/local/bin/setup-orchestation.sh "$USER_NAME" "/opt/pve-setup/setup-pve-workstation-phase3.sh"
-
 ##############################################################################
 # 99.b) Reinicio
 ###############################################################################
