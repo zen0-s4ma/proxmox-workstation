@@ -25,7 +25,7 @@ echo "==> .bash_profile Actualizado para lanzar la fase 5…"
 echo
 echo "==> Comenzando ejecución de post-instalación como usuario $(id -un)..."
 echo "==> Clonando repositorio auto-bspwm y ejecutando instalación..."
-git clone https://github.com/r1vs3c/auto-bspwm.git ~/auto-bspwm
+git clone https://github.com/zen0-s4ma/auto-bspwm.git ~/auto-bspwm
 cd ~/auto-bspwm
 sudo chmod +x setup.sh
 sudo -u "$USER_NAME" bash -c "cd \"$HOME/auto-bspwm\" && ./setup.sh | tee /tmp/setup_log.txt" || { echo "(Error) Falló la instalación de auto-bspwm"; exit 1; }
