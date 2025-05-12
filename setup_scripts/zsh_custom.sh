@@ -18,22 +18,19 @@ else
   echo "==> Zsh ya está instalado ($(zsh --version))"
 fi
 
+echo "==> 2. Instalar Oh My Zsh si no esta presente"
 if [ ! -d "$HOME/auto-bspwm" ]; then
     echo
-    echo "==> 2. Instalar Oh My Zsh (sin cambiar shell por defecto)"
-    # Descarga y ejecuta el instalador, pero evita el chsh automático
     curl -fsSL "$INSTALL_SCRIPT_URL" -o /tmp/install-ohmyzsh.sh
-
-    # Ejecuta el instalador
     sh /tmp/install-ohmyzsh.sh --unattended
     rm /tmp/install-ohmyzsh.sh
 else
     echo "==> El repositorio auto-bspwm ya existe. No se realiza la instalación."
 fi
 
+echo "==> 3. Clonar e instalar Powerlevel10k si no esta presente"
 if [ ! -d "${ZSH_CUSTOM}/themes/" ]; then
     echo
-    echo "==> 3. Clonar e instalar Powerlevel10k"
     mkdir -p "${ZSH_CUSTOM}/themes"
     git clone --depth=1 "$P10K_GIT_REPO" "${ZSH_CUSTOM}/themes/"
 else
