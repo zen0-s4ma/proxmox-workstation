@@ -41,7 +41,7 @@ echo "==> Customizando ZSH..."
 
 echo
 echo "==> copiando el archivo .zshrc..."
-cp -f ./config_files/zshrc $HOME/.zshrc
+cp -f /opt/pve-setup/zshrc $HOME/.zshrc
 source ~/.zshrc
 
 ##############################################################################
