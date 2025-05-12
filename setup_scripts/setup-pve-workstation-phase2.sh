@@ -73,7 +73,7 @@ echo "==> Instalando complementos VMWare…"
 sudo apt install -y open-vm-tools open-vm-tools-desktop xserver-xorg-video-vmware gnome-software
 
 ###############################################################################
-# 8) Tor, TorBrowser y Proxychains
+# 8) Tor y Proxychains
 ###############################################################################
 echo
 echo "==> Instalando Tor y Tor Browser Launcher…"
