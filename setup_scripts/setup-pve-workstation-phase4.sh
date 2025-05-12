@@ -44,6 +44,6 @@ sudo systemctl set-default multi-user.target
 sudo systemctl enable getty@tty1.service
 sudo systemctl restart getty@tty1.service
 
-#echo "...FIN DE PHASE 4 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
-#read -n 1 -s
+echo "...FIN DE PHASE 4 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
+read -n 1 -s
 sudo reboot
