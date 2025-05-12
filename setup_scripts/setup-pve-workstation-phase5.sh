@@ -17,7 +17,8 @@ echo
 echo
 echo "==> Configuración inicial completa. Reiniciando con el entorno grafico activado..."
 echo
-sudo systemctl enable autologin.service
+sudo systemctl stop autologin.service
+sudo systemctl disable autologin.service
 sudo systemctl set-default multi-user.target
 #sudo systemctl set-default graphical.target
 
