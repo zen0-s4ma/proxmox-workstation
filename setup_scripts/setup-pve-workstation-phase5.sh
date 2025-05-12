@@ -2,7 +2,7 @@
 set -e
 
 USER_NAME="zenosama"
-HOME="/home/$HOME"
+HOME="/home/$USER_NAME"
 
 
 ##############################################################################
