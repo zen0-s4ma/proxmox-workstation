@@ -2,15 +2,19 @@
 set -e
 
 USER_NAME="zenosama"
-USER_HOME=$(eval echo "~$USER_NAME")
-echo "==> Directorio home: "$USER_HOME""
+USER_HOME=$(eval echo "~${USER_NAME}")
+echo "==> Directorio home: ${USER_HOME}"
 
-mkdir -p ~/.config/autostart
+mkdir -p "${USER_HOME}/.config/autostart"
 
 echo
 echo "==> Creando fichero de lanzador de terminal…"
 
-cp -f /opt/pve-setup/autostart_terminal.desktop "$USER_HOME"/.config/autostart/auto_terminal.desktop
+cp -f /opt/pve-setup/autostart_terminal.desktop "${USER_HOME}/.config/autostart/auto_terminal.desktop"
+
+# Asegúrate de que el usuario tenga permisos sobre el fichero
+chown "${USER_NAME}:${USER_NAME}" "${USER_HOME}/.config/autostart/auto_terminal.desktop"
 
 echo
-echo "==> La terminal se ejecutará automáticamente al iniciar el entorno gráfico"
+echo "La terminal se ejecutará automáticamente al iniciar el entorno gráfico."
+echo

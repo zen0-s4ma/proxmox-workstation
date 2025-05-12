@@ -28,12 +28,15 @@ echo "==> Vaciando el fichero .bash_profile..."
 
 echo
 /opt/pve-setup/init_terminal.sh
-echo
 
+echo
+echo "==> Activando entorno grafico..."
 #sudo systemctl set-default multi-user.target
 sudo systemctl set-default graphical.target 
-echo
 
+
+echo
+echo "==> Borrando el servicio de autologin..."
 #Borrado del servicio de autologin
 sudo rm /etc/systemd/system/getty@tty1.service.d/override.conf
 sudo systemctl daemon-reload
