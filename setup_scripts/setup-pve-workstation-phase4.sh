@@ -20,17 +20,6 @@ sudo chmod +x setup.sh
 ./setup.sh || { echo "(Error) Falló la instalación de auto-bspwm"; exit 1; }
 sudo cd "$HOME"
 
-echo
-echo "==> Clonando repositorio de dotfiles y aplicando configuración..."
-# Si se dispone de un repositorio de dotfiles para configurar el entorno (por ejemplo, configuración de bspwm, polybar, etc.)
-if [ -n "$DOTFILES_REPO" ]; then
-    git clone "$DOTFILES_REPO" ~/dotfiles
-else
-    git clone https://github.com/RaulSanchezzt/dotfiles.git ~/dotfiles
-fi
-cd ~/dotfiles && chmod +x link.sh && ./link.sh || echo "(Aviso) No se ejecutó link.sh de dotfiles"
-cd "$HOME"
-
 ###############################################################################
 # 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase
 ###############################################################################
