@@ -54,6 +54,7 @@ echo "==> .bash_profile Actualizado para lanzar la fase 5…"
 ###############################################################################
 echo
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 5..."
+sudo systemctl set-default multi-user.target
 echo "...PULSA CUALQUIER TECLA PARA CONTINUAR..."
 read -n 1 -s
 sudo reboot

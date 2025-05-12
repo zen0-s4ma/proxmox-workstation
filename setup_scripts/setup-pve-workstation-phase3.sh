@@ -37,21 +37,17 @@ sudo apt install -y arc-theme papirus-icon-theme numix-gtk-theme numix-icon-them
 echo
 echo "==> Actualizacion del .bash_profile…"
 USER_HOME=$(eval echo "~$USER_NAME")
-cp -f /opt/pve-setup/bash_profiles_phase4 "$USER_HOME/.bash_profile"
+cp -f /opt/pve-setup/bash_profiles_phase5 "$USER_HOME/.bash_profile"
 sudo chown "$USER_NAME:$USER_NAME" /home/$USER_NAME/.bash_profile
 sudo chmod 644 /home/$USER_NAME/.bash_profile
-echo "==> .bash_profile Actualizado para lanzar la fase 4…"
-
-#### PARADA TEMPORAL PARA DEBUG ###
-echo "==> PREPARANDO PARADA TEMPORAL PARA PROXIMO REINCIO…"
-USER_HOME=$(eval echo "~$USER_NAME")
-: > "$USER_HOME/.bash_profile"
+echo "==> .bash_profile Actualizado para lanzar la fase 5…"
 
 ##############################################################################
 # 99.b) Reinicio
 ###############################################################################
 echo
-echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 4..."
+echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 5..."
+sudo systemctl set-default multi-user.target
 echo "...PULSA CUALQUIER TECLA PARA CONTINUAR..."
 read -n 1 -s
 sudo reboot
