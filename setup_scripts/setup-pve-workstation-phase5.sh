@@ -56,14 +56,13 @@ echo
 echo "==> Borrando el servicio de autologin..."
 #Borrado del servicio de autologin
 #sudo rm /etc/systemd/system/getty@tty1.service.d/override.conf
-sudo systemctl daemon-reload
+#sudo systemctl daemon-reload
 
 ##############################################################################
 # 6) Cambiando a ZSH como shell por defecto y cargando el .zshrc
 ###############################################################################
 echo
 echo "==> Cambiando a ZSH - chsh -s /bin/zsh ${USER_NAME}..."
-chsh -s /bin/zsh ${USER_NAME}
 echo
 echo "==> copiando el archivo .zshrc..."
 cp -f /opt/pve-setup/zshrc "$HOME"/.zshrc
@@ -73,6 +72,9 @@ cat "$HOME"/.zshrc
 echo
 echo "==> Lanzando ZSH..."
 zsh -c "source ${HOME}/.zshrc" 
+echo
+echo "==> Eligiendo ZSH como predeterminada..."
+sudo chsh -s /bin/zsh ${USER_NAME}
 
 ##############################################################################
 # 99.b) Reinicio
