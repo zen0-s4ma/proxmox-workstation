@@ -52,6 +52,7 @@ chsh -s /bin/zsh "$USER_NAME"
 
 echo
 zsh
+source ~/.zshrc
 
 echo "...FIN DE FASE FINAL - PULSA CUALQUIER TECLA PARA CONTINUAR. ULTIMO REBOOT Y ARRANCA CON ENTORNO GRAFICO..."
 read -n 1 -s
