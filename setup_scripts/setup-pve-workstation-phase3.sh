@@ -23,7 +23,7 @@ echo "==> Instalando servidor grafico…"
 sudo apt install -y dbus-x11 x11-xserver-utils xinit
 echo
 echo "==> Instalando Xfce4…"
-sudo apt install -y xfce4 xfce4-goodies xfce4-whiskermenu-plugin xfce4-screenshooter xfce4-taskmanager xfce4-power-manager \
+sudo apt install -y desktop-base xfce4 xfce4-goodies xfce4-whiskermenu-plugin xfce4-screenshooter xfce4-taskmanager xfce4-power-manager \
                thunar-archive-plugin thunar-volman gvfs-backends xfce4-genmon-plugin xfce4-weather-plugin \
                xfce4-pulseaudio-plugin xfce4-netload-plugin xfce4-cpugraph-plugin xfce4-battery-plugin ristretto \
                tumbler gvfs-fuse
