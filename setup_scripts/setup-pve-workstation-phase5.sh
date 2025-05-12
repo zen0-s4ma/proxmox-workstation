@@ -79,6 +79,6 @@ zsh -c "source ${HOME}/.zshrc"
 ###############################################################################
 echo
 echo "==> Configuración inicial completa. Reiniciando con el entorno grafico activado..."
-echo "...FIN DE FASE FINAL - PULSA CUALQUIER TECLA PARA CONTINUAR. ULTIMO REBOOT Y ARRANCA CON ENTORNO GRAFICO..."
-read -n 1 -s
+#echo "...FIN DE FASE FINAL - PULSA CUALQUIER TECLA PARA CONTINUAR. ULTIMO REBOOT Y ARRANCA CON ENTORNO GRAFICO..."
+#read -n 1 -s
 sudo reboot
