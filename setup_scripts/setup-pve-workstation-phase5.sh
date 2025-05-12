@@ -22,12 +22,22 @@ echo "==> ¡Sistema Proxmox Workstation configurado y listo!"
 ###############################################################################
 echo
 echo "==> Configuración inicial completa. Reiniciando con el entorno grafico activado..."
+echo "==> Directorio home: ${USER_HOME}"
+
 echo
 echo "==> Vaciando el fichero .bash_profile..."
 : > "$HOME/.bash_profile"
 
 echo
-/opt/pve-setup/init_terminal.sh
+mkdir -p "${USER_HOME}/.config/autostart"
+echo
+echo "==> Creando fichero de lanzador de terminal…"
+cp -f /opt/pve-setup/autostart_terminal.desktop "${USER_HOME}/.config/autostart/auto_terminal.desktop"
+# Asegúrate de que el usuario tenga permisos sobre el fichero
+chown "${USER_NAME}:${USER_NAME}" "${USER_HOME}/.config/autostart/auto_terminal.desktop"
+echo
+echo "La terminal se ejecutará automáticamente al iniciar el entorno gráfico."
+echo
 
 echo
 echo "==> Activando entorno grafico..."
