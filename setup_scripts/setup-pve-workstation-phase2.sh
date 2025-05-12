@@ -77,7 +77,7 @@ sudo apt install -y open-vm-tools open-vm-tools-desktop xserver-xorg-video-vmwar
 ###############################################################################
 echo
 echo "==> Instalando Tor y Tor Browser Launcher…"
-sudo apt install -y tor torbrowser-launcher proxychains
+sudo apt install -y tor proxychains
 
 ###############################################################################
 # 9) Instalar Ollama (IA local)
@@ -87,7 +87,25 @@ sudo apt install -y tor torbrowser-launcher proxychains
 #sudo curl -fsSL https://ollama.com/install.sh | sudo bash
 
 ###############################################################################
-# 10) Instalar Docker CE y componer entorno de contenedores
+# 10) Instalar Flatpak y aplicaciones
+###############################################################################
+echo
+echo "==> Instalando Flatpak..."
+sudo apt install -y flatpak
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install -y flathub org.dupot.easyflatpak
+flatpak install -y flathub org.videolan.VLC
+flatpak install -y flathub org.mozilla.Thunderbird
+flatpak install -y flathub org.torproject.torbrowser-launcher
+flatpak install -y flathub org.cubocore.CorePDF
+flatpak install -y flathub io.github.shiftey.Desktop
+flatpak install -y flathub net.mullvad.MullvadBrowser
+flatpak install -y flathub org.jdownloader.JDownloader
+flatpak install -y flathub com.visualstudio.code
+flatpak install -y flathub xyz.ketok.Speedtest
+
+###############################################################################
+# 11) Instalar Docker CE y componer entorno de contenedores
 ###############################################################################
 echo
 echo "==> Instalando Docker Engine y herramientas..."
