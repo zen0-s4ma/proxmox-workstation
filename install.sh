@@ -142,6 +142,6 @@ sudo systemctl set-default multi-user.target
 sudo systemctl disable autologin.service
 sudo systemctl enable autologin.service
 
-echo "...FIN DE INSTALL.SH - PULSA CUALQUIER TECLA PARA CONTINUAR..."
-read -n 1 -s
+#echo "...FIN DE INSTALL.SH - PULSA CUALQUIER TECLA PARA CONTINUAR..."
+#read -n 1 -s
 sudo reboot
