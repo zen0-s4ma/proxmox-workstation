@@ -139,6 +139,7 @@ echo "==> .bash_profile Actualizado para lanzar la fase 2…"
 echo
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 2..."
 sudo systemctl set-default multi-user.target
+sudo systemctl disable autologin.service
 sudo systemctl enable autologin.service
 
 echo "...FIN DE INSTALL.SH - PULSA CUALQUIER TECLA PARA CONTINUAR..."
