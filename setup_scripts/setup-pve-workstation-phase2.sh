@@ -146,5 +146,3 @@ sudo systemctl daemon-reload
 #echo "...FIN DE PHASE 2 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
 #read -n 1 -s
 sudo reboot
-
-
