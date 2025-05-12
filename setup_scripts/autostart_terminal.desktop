@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Auto Neofetch
+Exec=xfce4-terminal --command="neofetch; exec bash"
+Terminal=false
