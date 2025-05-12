@@ -47,7 +47,6 @@ chmod +x /opt/pve-setup/setup-pve-workstation-phase5.sh
 
 echo
 echo "==> creando el servicio para el autologin durante la instalacion..."
-sudo mkdir /etc/systemd/system/getty@tty1.service.d
 cp -f ./custom_services/autologin.service /etc/systemd/system/autologin.service
 
 ###############################################################################
