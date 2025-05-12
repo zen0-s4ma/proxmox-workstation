@@ -34,8 +34,8 @@ echo
 echo "==> 3. Clonar e instalar powerlevel10k si no esta presente"
 if [ ! -d "${ZSH_CUSTOM}/themes/powerlevel10k" ]; then
     echo
-    mkdir -p "${ZSH_CUSTOM}/themes"
-    git clone --depth=1 "$P10K_GIT_REPO" "${ZSH_CUSTOM}/themes/"
+    mkdir -p "${ZSH_CUSTOM}/themes/powerlevel10k"
+    git clone --depth=1 "$P10K_GIT_REPO" "${ZSH_CUSTOM}/themes/powerlevel10k/"
 else
     echo "==> El repositorio powerlevel10k ya existe. No se realiza la instalación."
 fi

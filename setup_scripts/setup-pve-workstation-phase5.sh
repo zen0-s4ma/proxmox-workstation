@@ -71,7 +71,7 @@ echo "==> contenido de .zshrc:"
 cat "$HOME"/.zshrc
 echo
 echo "==> Lanzando ZSH..."
-zsh -c "source ${HOME}/.zshrc" 
+zsh -ic "source ${HOME}/.zshrc"
 echo
 echo "==> Eligiendo ZSH como predeterminada..."
 sudo chsh -s /bin/zsh ${USER_NAME}
