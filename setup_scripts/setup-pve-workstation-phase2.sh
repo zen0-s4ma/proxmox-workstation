@@ -82,9 +82,9 @@ sudo apt install -y tor torbrowser-launcher proxychains
 ###############################################################################
 # 9) Instalar Ollama (IA local)
 ###############################################################################
-echo
-echo "==> Instalando Ollama (IA local)..."
-sudo curl -fsSL https://ollama.com/install.sh | sudo bash
+#echo
+#echo "==> Instalando Ollama (IA local)..."
+#sudo curl -fsSL https://ollama.com/install.sh | sudo bash
 
 ###############################################################################
 # 10) Instalar Docker CE y componer entorno de contenedores
