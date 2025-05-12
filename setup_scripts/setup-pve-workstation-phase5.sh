@@ -29,8 +29,9 @@ USER_HOME=$(eval echo "~$USER_NAME")
 
 /opt/pve-setup/init_terminal.sh
 
-sudo rm /etc/systemd/system/getty@tty1.service.d/override.conf
-sudo systemctl daemon-reload
+#Borrado del servicio de autologin
+#sudo rm /etc/systemd/system/getty@tty1.service.d/override.conf
+#sudo systemctl daemon-reload
 
 sudo systemctl set-default graphical.target #sudo systemctl set-default multi-user.target para ponerlo en arranque de consola tty
 
