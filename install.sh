@@ -48,6 +48,12 @@ chmod +x /opt/pve-setup/setup-pve-workstation-phase5.sh
 echo
 echo "==> creando el servicio para el autologin durante la instalacion..."
 cp -f ./custom_services/autologin.service /etc/systemd/system/autologin.service
+chmod +x /etc/systemd/system/autologin.service
+
+echo
+echo "==> creando lanzador de terminal al iniciar sesion grafica..."
+cp -f ./setup_scripts/init_terminal.sh /opt/pve-setup/init_terminal.sh
+chmod +x /opt/pve-setup/init_terminal.sh
 
 ###############################################################################
 # 2) Agregar Repositorios de kali
