@@ -140,6 +140,7 @@ echo "==> .bash_profile Actualizado para lanzar la fase 3…"
 echo
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 3..."
 sudo systemctl set-default multi-user.target
+sudo systemctl enable autologin.service
 echo "...PULSA CUALQUIER TECLA PARA CONTINUAR..."
 read -n 1 -s
 sudo reboot

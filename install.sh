@@ -45,6 +45,11 @@ chmod +x /opt/pve-setup/setup-pve-workstation-phase3.sh
 chmod +x /opt/pve-setup/setup-pve-workstation-phase4.sh
 chmod +x /opt/pve-setup/setup-pve-workstation-phase5.sh
 
+echo
+echo "==> creando el servicio para el autologin durante la instalacion..."
+sudo mkdir /etc/systemd/system/getty@tty1.service.d
+cp -f ./custom_services/autologin.service /etc/systemd/system/autologin.service
+
 ###############################################################################
 # 2) Agregar Repositorios de kali
 ###############################################################################
@@ -128,6 +133,7 @@ echo "==> .bash_profile Actualizado para lanzar la fase 2…"
 ###############################################################################
 echo
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 2..."
+sudo systemctl enable autologin.service
 sudo systemctl set-default multi-user.target
 echo "...PULSA CUALQUIER TECLA PARA CONTINUAR..."
 read -n 1 -s

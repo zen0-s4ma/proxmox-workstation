@@ -1,0 +1,4 @@
+[Service]
+Type=oneshot
+ExecStart=
+ExecStart=-/sbin/agetty --autologin zenosama --noclear %I $TERM
