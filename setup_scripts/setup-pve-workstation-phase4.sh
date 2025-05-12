@@ -36,6 +36,10 @@ else
 fi
 
 echo
+echo "==> Customizando ZSH..."
+/opt/pve-setup/zsh_custom.sh
+
+echo
 echo "==> copiando el archivo .zshrc..."
 cp -f ./config_files/zshrc $HOME/.zshrc
 source ~/.zshrc

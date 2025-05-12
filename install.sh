@@ -31,12 +31,14 @@ cp -f ./config_files/bash_profiles_phase3 /opt/pve-setup/bash_profiles_phase3
 cp -f ./config_files/bash_profiles_phase4 /opt/pve-setup/bash_profiles_phase4
 cp -f ./config_files/bash_profiles_phase5 /opt/pve-setup/bash_profiles_phase5
 
+
 echo
 echo "==> Copiando scripts de instalacion..."
 cp -f ./setup_scripts/setup-pve-workstation-phase2.sh /opt/pve-setup/setup-pve-workstation-phase2.sh
 cp -f ./setup_scripts/setup-pve-workstation-phase3.sh /opt/pve-setup/setup-pve-workstation-phase3.sh
 cp -f ./setup_scripts/setup-pve-workstation-phase4.sh /opt/pve-setup/setup-pve-workstation-phase4.sh
 cp -f ./setup_scripts/setup-pve-workstation-phase5.sh /opt/pve-setup/setup-pve-workstation-phase5.sh
+cp -f ./config_files/zsh_custom.sh /opt/pve-setup/zsh_custom.sh
 
 echo
 echo "==> Dando permisos de ejecucion a los scripts..."
@@ -44,6 +46,7 @@ chmod +x /opt/pve-setup/setup-pve-workstation-phase2.sh
 chmod +x /opt/pve-setup/setup-pve-workstation-phase3.sh
 chmod +x /opt/pve-setup/setup-pve-workstation-phase4.sh
 chmod +x /opt/pve-setup/setup-pve-workstation-phase5.sh
+chmod +x /opt/pve-setup/zsh_custom.sh
 
 echo
 echo "==> creando el servicio para el autologin durante la instalacion..."
