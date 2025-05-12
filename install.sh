@@ -30,8 +30,6 @@ cp -f ./setup_scripts/setup-pve-workstation-phase2.sh /opt/pve-setup/setup-pve-w
 cp -f ./setup_scripts/setup-pve-workstation-phase3.sh /opt/pve-setup/setup-pve-workstation-phase3.sh
 cp -f ./setup_scripts/setup-pve-workstation-phase4.sh /opt/pve-setup/setup-pve-workstation-phase4.sh
 cp -f ./setup_scripts/setup-pve-workstation-phase5.sh /opt/pve-setup/setup-pve-workstation-phase5.sh
-cp -f ./setup_scripts/setup-orchestation.sh /usr/local/bin/setup-orchestation.sh
-sudo chmod +x /usr/local/bin/setup-orchestation.sh
 
 echo
 echo "==> Dando permisos de ejecucion a los scripts..."
@@ -73,7 +71,6 @@ if [[ $EUID -eq 0 && -z "${RUN_AS_ZENO:-}" ]]; then
     apt update -qq
     apt install -y sudo
   fi
-  
   echo
   echo "==> [root] Creando usuario '$USER_NAME'…"
   chmod +x ./setup_scripts/create_user.sh
