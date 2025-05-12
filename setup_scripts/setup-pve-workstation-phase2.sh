@@ -123,11 +123,22 @@ echo "==> Revisando dependencias…"
 sudo dpkg --configure -a
 sudo apt install -f -y
 
+###############################################################################
+# 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase
+###############################################################################
+echo
+echo "==> Actualizacion del .bash_profile…"
+USER_HOME=$(eval echo "~$USER_NAME")
+cp -f /opt/pve-setup/bash_profiles_phase3 "$USER_HOME/.bash_profile"
+sudo chown "$USER_NAME:$USER_NAME" /home/$USER_NAME/.bash_profile
+sudo chmod 644 /home/$USER_NAME/.bash_profile
+echo "==> .bash_profile Actualizado para lanzar la fase 3…"
+
 ##############################################################################
 # 99.b) Reinicio
 ###############################################################################
 echo
-echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 2..."
+echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 3..."
 echo "...PULSA CUALQUIER TECLA PARA CONTINUAR..."
 read -n 1 -s
 sudo reboot

@@ -32,17 +32,28 @@ cd ~/dotfiles && chmod +x link.sh && ./link.sh || echo "(Aviso) No se ejecutó l
 cd "$HOME"
 
 ###############################################################################
-# 99.a) Llamando al orquestador para la ejecucion del script en el proximo reinicio
+# 2) Habilitar el entorno grafico para el proximo arranque.
 ###############################################################################
 echo
-echo "==> llamamos al orquestador para configurar el proximo reinicio..."
-/usr/local/bin/setup-orchestation.sh "$USER_NAME" "/opt/pve-setup/setup-pve-workstation-phase5.sh"
+echo "==> Habilitando inicio gráfico en el arranque (graphical.target)..."
+sudo systemctl set-default graphical.target
+
+###############################################################################
+# 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase
+###############################################################################
+echo
+echo "==> Actualizacion del .bash_profile…"
+USER_HOME=$(eval echo "~$USER_NAME")
+cp -f /opt/pve-setup/bash_profiles_phase5 "$USER_HOME/.bash_profile"
+sudo chown "$USER_NAME:$USER_NAME" /home/$USER_NAME/.bash_profile
+sudo chmod 644 /home/$USER_NAME/.bash_profile
+echo "==> .bash_profile Actualizado para lanzar la fase 5…"
 
 ##############################################################################
 # 99.b) Reinicio
 ###############################################################################
 echo
-echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 2..."
+echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 5..."
 echo "...PULSA CUALQUIER TECLA PARA CONTINUAR..."
 read -n 1 -s
 sudo reboot

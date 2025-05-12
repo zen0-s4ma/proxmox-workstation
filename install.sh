@@ -113,7 +113,7 @@ echo "==> Path Actualizado: $(pwd)"
 echo "==> Shell Actual: $SHELL"
 
 ###############################################################################
-# 99.a) Comprobaciones
+# 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase
 ###############################################################################
 echo
 echo "==> Actualizacion del .bash_profile…"
