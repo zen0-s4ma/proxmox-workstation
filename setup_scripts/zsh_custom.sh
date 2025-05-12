@@ -28,18 +28,18 @@ else
     echo "==> El repositorio auto-bspwm ya existe. No se realiza la instalación."
 fi
 
-echo "==> 3. Clonar e instalar Powerlevel10k si no esta presente"
-if [ ! -d "${ZSH_CUSTOM}/themes/" ]; then
+echo "==> 3. Clonar e instalar powerlevel10k si no esta presente"
+if [ ! -d "${ZSH_CUSTOM}/themes/powerlevel10k" ]; then
     echo
     mkdir -p "${ZSH_CUSTOM}/themes"
     git clone --depth=1 "$P10K_GIT_REPO" "${ZSH_CUSTOM}/themes/"
 else
-    echo "==> El repositorio Powerlevel10k ya existe. No se realiza la instalación."
+    echo "==> El repositorio powerlevel10k ya existe. No se realiza la instalación."
 fi
 
 echo
 chsh -s /bin/bash "$USER_NAME"
 
 echo
-echo "==> ZSH customizada, en el primer arranque se elijen las opciones de Powerlevel10k"
+echo "==> ZSH customizada, en el primer arranque se elijen las opciones de personalizacion"
 echo

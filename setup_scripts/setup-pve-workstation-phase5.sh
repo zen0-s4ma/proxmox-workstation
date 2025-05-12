@@ -50,6 +50,9 @@ echo
 echo "==> Cambiando a ZSH..."
 chsh -s /bin/zsh "$USER_NAME"
 
+echo
+zsh
+
 echo "...FIN DE FASE FINAL - PULSA CUALQUIER TECLA PARA CONTINUAR. ULTIMO REBOOT Y ARRANCA CON ENTORNO GRAFICO..."
 read -n 1 -s
 sudo reboot
