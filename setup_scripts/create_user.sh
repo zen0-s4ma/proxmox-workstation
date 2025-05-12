@@ -28,3 +28,4 @@ EOF
     chmod 644 "$BPROFILE"
   fi
 fi
+chsh -s /bin/bash "$USER_NAME"
