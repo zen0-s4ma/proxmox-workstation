@@ -30,7 +30,7 @@ rm /tmp/install-ohmyzsh.sh
 echo
 echo "==> 3. Clonar e instalar Powerlevel10k"
 mkdir -p "${ZSH_CUSTOM}/themes"
-git clone --depth=1 "$P10K_GIT_REPO" "${ZSH_CUSTOM}/themes/powerlevel10k"
+git clone --depth=1 "$P10K_GIT_REPO" "${ZSH_CUSTOM}/themes/"
 
 echo
 chsh -s /bin/bash "$USER_NAME"
