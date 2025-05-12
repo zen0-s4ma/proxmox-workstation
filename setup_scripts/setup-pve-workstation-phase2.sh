@@ -142,7 +142,7 @@ echo "==> Configuración inicial completa. Reiniciando el sistema para proceder 
 sudo systemctl enable autologin.service
 sudo systemctl set-default multi-user.target
 
-echo "...PULSA CUALQUIER TECLA PARA CONTINUAR..."
+echo "...FIN DE PHASE 2 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
 read -n 1 -s
 sudo reboot
 
