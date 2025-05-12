@@ -60,6 +60,7 @@ chmod +x /opt/pve-setup/init_terminal.sh
 ###############################################################################
 echo
 echo "==> Importando repositorio Kali…"
+echo
 sudo apt install -y wget gnupg
 
 # clave + repo (pin 50 para no mezclar dependencias)
