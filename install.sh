@@ -39,6 +39,7 @@ cp -f ./setup_scripts/setup-pve-workstation-phase3.sh /opt/pve-setup/setup-pve-w
 cp -f ./setup_scripts/setup-pve-workstation-phase4.sh /opt/pve-setup/setup-pve-workstation-phase4.sh
 cp -f ./setup_scripts/setup-pve-workstation-phase5.sh /opt/pve-setup/setup-pve-workstation-phase5.sh
 cp -f ./setup_scripts/zsh_custom.sh /opt/pve-setup/zsh_custom.sh
+cp -f ./setup_scripts/system_update.sh /usr/local/bin/system_update.sh
 
 echo
 echo "==> Dando permisos de ejecucion a los scripts..."
@@ -47,6 +48,7 @@ chmod +x /opt/pve-setup/setup-pve-workstation-phase3.sh
 chmod +x /opt/pve-setup/setup-pve-workstation-phase4.sh
 chmod +x /opt/pve-setup/setup-pve-workstation-phase5.sh
 chmod +x /opt/pve-setup/zsh_custom.sh
+chmod +x /usr/local/bin/system_update.sh
 
 echo
 echo "==> creando el servicio para el autologin durante la instalacion..."

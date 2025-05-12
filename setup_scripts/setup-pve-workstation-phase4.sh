@@ -4,7 +4,7 @@ set -e
 echo "==> Iniciando Script Fase 4…"
 
 USER_NAME="zenosama"
-HOME="/home/$$HOME"
+HOME="/home/$USER_NAME"
 
 cd "$HOME"
 

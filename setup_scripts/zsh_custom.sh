@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+USER_NAME="zenosama"
 
 echo "==> 0. print del home: ${HOME}"
 # Variables

@@ -164,6 +164,7 @@ alias ls='/usr/bin/lsd --group-dirs=first'
 alias cat='/usr/bin/batcat'
 alias catn='/usr/bin/cat'
 alias catnl='/usr/bin/batcat --paging=never'
+alias actualizate='/usr/local/bin/system_update.sh'
 
 # Functions
 function mkt(){
