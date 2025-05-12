@@ -141,7 +141,6 @@ echo
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 3..."
 sudo systemctl enable autologin.service
 sudo systemctl set-default multi-user.target
-sudo systemctl daemon-reload
 
 #echo "...FIN DE PHASE 2 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
 #read -n 1 -s
