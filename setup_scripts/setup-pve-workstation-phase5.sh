@@ -72,10 +72,7 @@ echo "==> contenido de .zshrc:"
 cat "$HOME"/.zshrc
 echo
 echo "==> Lanzando ZSH..."
-zsh
-echo
-echo "==> Actualizanco .zshrc (source ~/.zshrc)..."
-source ${HOME}/.zshrc
+zsh -c "source ${HOME}/.zshrc" 
 
 ##############################################################################
 # 99.b) Reinicio
