@@ -62,11 +62,14 @@ sudo systemctl daemon-reload
 # 6) Cambiando a ZSH como shell por defecto y cargando el .zshrc
 ###############################################################################
 echo
-echo "==> Cambiando a ZSH..."
-chsh -s /bin/zsh "$USER_NAME"
+echo "==> Cambiando a ZSH - chsh -s /bin/zsh ${USER_NAME}..."
+chsh -s /bin/zsh ${USER_NAME}
 echo
+echo "==> Lanzando ZSH..."
 zsh
-source ~/.zshrc
+echo
+echo "==> Actualizanco .zshrc (source ~/.zshrc)..."
+source ${HOME}/.zshrc
 
 ##############################################################################
 # 99.b) Reinicio
