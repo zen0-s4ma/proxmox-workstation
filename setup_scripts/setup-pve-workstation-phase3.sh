@@ -52,8 +52,10 @@ echo "==> .bash_profile Actualizado para lanzar la fase 4…"
 ###############################################################################
 echo
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 4..."
-sudo systemctl enable autologin.service
+sudo systemctl daemon-reload
 sudo systemctl set-default multi-user.target
+sudo systemctl enable autologin.service
+sudo systemctl restart autologin.service
 
 #echo "...FIN DE PHASE 3 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
 #read -n 1 -s

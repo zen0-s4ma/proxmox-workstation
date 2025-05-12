@@ -16,12 +16,13 @@ echo
 ###############################################################################
 echo
 echo "==> Configuración inicial completa. Reiniciando con el entorno grafico activado..."
+
 echo
 sudo systemctl stop autologin.service
 sudo systemctl disable autologin.service
-#sudo systemctl set-default multi-user.target
-sudo systemctl set-default graphical.target
 sudo systemctl daemon-reload
+sudo systemctl set-default graphical.target
+#sudo systemctl set-default multi-user.target
 
 echo
 echo "==> Vaciando el fichero .bash_profile..."
