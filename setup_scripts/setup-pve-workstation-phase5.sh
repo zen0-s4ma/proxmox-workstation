@@ -65,6 +65,12 @@ echo
 echo "==> Cambiando a ZSH - chsh -s /bin/zsh ${USER_NAME}..."
 chsh -s /bin/zsh ${USER_NAME}
 echo
+echo "==> copiando el archivo .zshrc..."
+cp -f /opt/pve-setup/zshrc "$HOME"/.zshrc
+echo
+echo "==> contenido de .zshrc:"
+cat "$HOME"/.zshrc
+echo
 echo "==> Lanzando ZSH..."
 zsh
 echo

@@ -17,10 +17,6 @@ echo
 echo "==> Customizando ZSH..."
 /opt/pve-setup/zsh_custom.sh
 
-echo
-echo "==> copiando el archivo .zshrc..."
-cp -f /opt/pve-setup/zshrc "$HOME"/.zshrc
-
 ###############################################################################
 # 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase
 ###############################################################################
