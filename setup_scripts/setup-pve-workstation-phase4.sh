@@ -39,7 +39,7 @@ fi
 # 99.b) Reinicio
 ###############################################################################
 echo
-echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 5..."
+echo "==> Configuración inicial completa. Reiniciando el sistema en modo tty para proceder a Fase 5..."
 #echo "...FIN DE PHASE 4 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
 #read -n 1 -s
 sudo reboot

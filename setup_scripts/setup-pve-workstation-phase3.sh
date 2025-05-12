@@ -52,7 +52,7 @@ echo "==> .bash_profile Actualizado para lanzar la fase 4…"
 # 99.b) Reinicio
 ###############################################################################
 echo
-echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 4..."
+echo "==> Configuración inicial completa. Reiniciando el sistema en modo tty para proceder a Fase 4..."
 #echo "...FIN DE PHASE 3 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
 #read -n 1 -s
 sudo reboot

@@ -143,7 +143,7 @@ echo "==> .bash_profile Actualizado para lanzar la fase 2…"
 # 99.b) Reinicio
 ###############################################################################
 echo
-echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 2..."
+echo "==> Configuración inicial completa. Reiniciando el sistema en modo tty para proceder a Fase 2..."
 sudo systemctl set-default multi-user.target
 
 #echo "...FIN DE INSTALL.SH - PULSA CUALQUIER TECLA PARA CONTINUAR..."
