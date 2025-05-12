@@ -19,14 +19,14 @@ echo "==> Configuración inicial completa. Reiniciando con el entorno grafico ac
 echo
 sudo systemctl stop autologin.service
 sudo systemctl disable autologin.service
-sudo systemctl set-default multi-user.target
-#sudo systemctl set-default graphical.target
+#sudo systemctl set-default multi-user.target
+sudo systemctl set-default graphical.target
 
 echo
 echo "==> Vaciando el fichero .bash_profile..."
 USER_HOME=$(eval echo "~$USER_NAME")
 : > "$USER_HOME/.bash_profile"
 
-echo "...FIN DE PHASE 5 - PULSA CUALQUIER TECLA PARA CONTINUAR. ULTIMO REBOOT..."
-read -n 1 -s
+#echo "...FIN DE PHASE 5 - PULSA CUALQUIER TECLA PARA CONTINUAR. ULTIMO REBOOT..."
+#read -n 1 -s
 sudo reboot
