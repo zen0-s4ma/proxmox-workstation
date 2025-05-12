@@ -4,6 +4,7 @@ After=multi-user.target
 Wants=multi-user.target
 
 [Service]
+ExecStart=
 ExecStart=-/sbin/agetty --autologin zenosama --noclear tty1
 
 [Install]
