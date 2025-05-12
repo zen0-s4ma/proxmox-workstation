@@ -15,8 +15,6 @@ echo
 sudo update-alternatives --config x-terminal-emulator
 echo
 echo "==> ¡Sistema Proxmox Workstation configurado y listo!"
-neofetch
-echo
 
 ##############################################################################
 # 99.b) Reinicio
@@ -37,9 +35,9 @@ sudo systemctl set-default graphical.target
 echo
 
 #Borrado del servicio de autologin
-#sudo rm /etc/systemd/system/getty@tty1.service.d/override.conf
-#sudo systemctl daemon-reload
+sudo rm /etc/systemd/system/getty@tty1.service.d/override.conf
+sudo systemctl daemon-reload
 
-#echo "...FIN DE PHASE 5 - PULSA CUALQUIER TECLA PARA CONTINUAR. ULTIMO REBOOT..."
-#read -n 1 -s
+echo "...FIN DE FASE FINAL - PULSA CUALQUIER TECLA PARA CONTINUAR. ULTIMO REBOOT Y ARRANCA CON ENTORNO GRAFICO..."
+read -n 1 -s
 sudo reboot
