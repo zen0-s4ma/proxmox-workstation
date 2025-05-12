@@ -31,8 +31,6 @@ USER_HOME=$(eval echo "~$USER_NAME")
 
 #sudo systemctl set-default multi-user.target
 sudo systemctl set-default graphical.target 
-sudo systemctl enable getty@tty1.service
-sudo systemctl restart getty@tty1.service
 
 #Borrado del servicio de autologin
 #sudo rm /etc/systemd/system/getty@tty1.service.d/override.conf
