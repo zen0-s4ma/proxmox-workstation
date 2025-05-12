@@ -27,6 +27,6 @@ echo "==> Vaciando el fichero .bash_profile..."
 USER_HOME=$(eval echo "~$USER_NAME")
 : > "$USER_HOME/.bash_profile"
 
-#echo "...FIN DE PHASE 5 - PULSA CUALQUIER TECLA PARA CONTINUAR. ULTIMO REBOOT..."
-#read -n 1 -s
+echo "...FIN DE PHASE 5 - PULSA CUALQUIER TECLA PARA CONTINUAR. ULTIMO REBOOT..."
+read -n 1 -s
 sudo reboot
