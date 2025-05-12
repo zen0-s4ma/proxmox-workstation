@@ -1,5 +1,7 @@
 [Unit]
 Description=Autologin Temporal a TTY1
+After=multi-user.target
+Wants=multi-user.target
 
 [Service]
 Type=oneshot
