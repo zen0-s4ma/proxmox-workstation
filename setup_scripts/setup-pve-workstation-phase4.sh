@@ -41,8 +41,8 @@ fi
 echo
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 5..."
 sudo systemctl set-default multi-user.target
-sudo systemctl disable autologin.service
-sudo systemctl enable autologin.service
+sudo systemctl enable getty@tty1.service
+sudo systemctl restart getty@tty1.service
 
 #echo "...FIN DE PHASE 4 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
 #read -n 1 -s
