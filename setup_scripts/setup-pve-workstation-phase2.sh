@@ -26,11 +26,11 @@ sudo apt install -y \
   apt-transport-https ca-certificates kitty xfce4-terminal zsh
   
 ###############################################################################
-# 2) Instalar navegador y editores
+# 2) Instalar editores
 ###############################################################################
 echo
-echo "==> Instalando navegador y editores…"
-sudo apt install -y firefox-esr nano vim neovim gedit
+echo "==> Instalando editores…"
+sudo apt install -y nano vim neovim gedit libreoffice
 
 echo
 echo "==> Instalando navegador de terceros: Brave…"
