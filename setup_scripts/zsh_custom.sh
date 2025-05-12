@@ -38,7 +38,7 @@ else
 fi
 
 echo
-chsh -s /bin/bash "$USER_NAME"
+sudo chsh -s /bin/bash "$USER_NAME"
 
 echo
 echo "==> ZSH customizada"
