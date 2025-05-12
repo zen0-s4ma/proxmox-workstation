@@ -28,6 +28,16 @@ sudo apt install -y desktop-base xfce4 xfce4-goodies xfce4-whiskermenu-plugin xf
                xfce4-pulseaudio-plugin xfce4-netload-plugin xfce4-cpugraph-plugin xfce4-battery-plugin ristretto \
                tumbler gvfs-fuse
 echo
+echo "==> Instalando Cinnamon…"
+sudo apt install -y cinnamon cinnamon-desktop-environment cinnamon-control-center cinnamon-screensaver nemo nemo-fileroller \
+               gnome-screenshot gnome-keyring network-manager-gnome
+echo
+echo "==> Instalando Budgie…"
+sudo apt install -y budgie-desktop budgie-core
+echo
+echo "==> Instalando Mate…"
+sudo apt install -y mate-desktop-environment mate-desktop-environment-extras
+echo
 sudo apt install -y arc-theme papirus-icon-theme numix-gtk-theme numix-icon-theme-circle materia-gtk-theme orchis-gtk-theme \
                breeze-icon-theme gnome-icon-theme oxygen-icon-theme
 
