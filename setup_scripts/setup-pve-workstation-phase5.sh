@@ -20,7 +20,6 @@ sudo update-alternatives --config x-terminal-emulator
 echo
 echo "==> ¡Sistema Proxmox Workstation configurado y listo!"
 
-
 ##############################################################################
 # 2) Limpieza de .bash_profile
 ###############################################################################
@@ -32,9 +31,9 @@ echo "==> Vaciando el fichero .bash_profile..."
 # 3) Lanzador de terminal
 ###############################################################################
 echo
+echo "==> Creando fichero de lanzador de terminal…"
 mkdir -p "${HOME}/.config/autostart"
 echo
-echo "==> Creando fichero de lanzador de terminal…"
 cp -f /opt/pve-setup/autostart_terminal.desktop "${HOME}/.config/autostart/auto_terminal.desktop"
 # Asegúrate de que el usuario tenga permisos sobre el fichero
 chown "${USER_NAME}:${USER_NAME}" "${HOME}/.config/autostart/auto_terminal.desktop"
