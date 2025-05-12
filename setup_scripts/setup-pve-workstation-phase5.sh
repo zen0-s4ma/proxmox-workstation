@@ -40,7 +40,7 @@ sudo systemctl daemon-reload
 
 echo
 echo "==> Cambiando a ZSH..."
-chsh -s /bin/bash "$USER_NAME"
+chsh -s /bin/zsh "$USER_NAME"
 
 echo "...FIN DE FASE FINAL - PULSA CUALQUIER TECLA PARA CONTINUAR. ULTIMO REBOOT Y ARRANCA CON ENTORNO GRAFICO..."
 read -n 1 -s
