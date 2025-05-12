@@ -19,8 +19,8 @@ echo "==> Configuración inicial completa. Reiniciando con el entorno grafico ac
 
 echo
 sudo systemctl stop autologin.service
+sudo systemctl enable autologin.service
 sudo systemctl disable autologin.service
-sudo systemctl daemon-reload
 sudo systemctl set-default graphical.target
 #sudo systemctl set-default multi-user.target
 
