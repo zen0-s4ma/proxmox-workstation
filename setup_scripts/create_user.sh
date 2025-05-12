@@ -3,7 +3,6 @@ set -e
 
 USER_NAME="zenosama"
 
-echo "==> [root] Creando usuario '$USER_NAME'…"
 if ! id -u "$USER_NAME" &>/dev/null; then
   # Crear usuario con Bash como shell por defecto y en el grupo sudo
   useradd -m -s /bin/bash -G sudo "$USER_NAME"

@@ -25,6 +25,13 @@ cp -f ./config_files/resolv.conf /etc/resolv.conf
 cp -f ./config_files/sources.list /etc/apt/sources.list
 
 echo
+echo "==> Copiando ficheros de bash profile..."
+cp -f ./config_files/bash_profiles_phase2 /opt/pve-setup/bash_profiles_phase2
+cp -f ./config_files/bash_profiles_phase3 /opt/pve-setup/bash_profiles_phase3
+cp -f ./config_files/bash_profiles_phase4 /opt/pve-setup/bash_profiles_phase4
+cp -f ./config_files/bash_profiles_phase5 /opt/pve-setup/bash_profiles_phase5
+
+echo
 echo "==> Copiando scripts de instalacion..."
 cp -f ./setup_scripts/setup-pve-workstation-phase2.sh /opt/pve-setup/setup-pve-workstation-phase2.sh
 cp -f ./setup_scripts/setup-pve-workstation-phase3.sh /opt/pve-setup/setup-pve-workstation-phase3.sh
@@ -111,7 +118,7 @@ echo "==> Shell Actual: $SHELL"
 echo
 echo "==> Actualizacion del .bash_profile…"
 USER_HOME=$(eval echo "~$USER_NAME")
-cp -f ./config_files/bash_profiles_phase2 "$USER_HOME/.bash_profile"
+cp -f /opt/pve-setup/bash_profiles_phase2 "$USER_HOME/.bash_profile"
 sudo chown "$USER_NAME:$USER_NAME" /home/$USER_NAME/.bash_profile
 sudo chmod 644 /home/$USER_NAME/.bash_profile
 echo "==> .bash_profile Actualizado para lanzar la fase 2…"
