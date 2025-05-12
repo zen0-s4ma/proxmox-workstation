@@ -2,6 +2,7 @@
 set -e
 
 USER_NAME="zenosama"
+HOME="/home/$HOME"
 
 
 ##############################################################################
@@ -23,8 +24,7 @@ echo
 echo "==> Configuración inicial completa. Reiniciando con el entorno grafico activado..."
 echo
 echo "==> Vaciando el fichero .bash_profile..."
-USER_HOME=$(eval echo "~$USER_NAME")
-: > "$USER_HOME/.bash_profile"
+: > "$HOME/.bash_profile"
 
 echo
 /opt/pve-setup/init_terminal.sh

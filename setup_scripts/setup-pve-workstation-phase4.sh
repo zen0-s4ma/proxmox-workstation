@@ -4,8 +4,8 @@ set -e
 echo "==> Iniciando Script Fase 4…"
 
 USER_NAME="zenosama"
+HOME="/home/$$HOME"
 
-export HOME="/home/zenosama"
 cd "$HOME"
 
 ###############################################################################
@@ -34,6 +34,11 @@ if [ ! -d "$HOME/auto-bspwm" ]; then
 else
     echo "==> El repositorio auto-bspwm ya existe. No se realiza la instalación."
 fi
+
+echo
+echo "==> copiando el archivo .zshrc..."
+cp -f ./config_files/zshrc $HOME/.zshrc
+source ~/.zshrc
 
 ##############################################################################
 # 99.b) Reinicio
