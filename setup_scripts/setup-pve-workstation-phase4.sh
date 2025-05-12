@@ -32,13 +32,6 @@ cd ~/dotfiles && chmod +x link.sh && ./link.sh || echo "(Aviso) No se ejecutó l
 cd "$HOME"
 
 ###############################################################################
-# 2) Habilitar el entorno grafico para el proximo arranque.
-###############################################################################
-echo
-echo "==> Habilitando inicio gráfico en el arranque (graphical.target)..."
-sudo systemctl set-default graphical.target
-
-###############################################################################
 # 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase
 ###############################################################################
 echo
@@ -54,8 +47,8 @@ echo "==> .bash_profile Actualizado para lanzar la fase 5…"
 ###############################################################################
 echo
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 5..."
-sudo systemctl set-default multi-user.target
 sudo systemctl enable autologin.service
+sudo systemctl set-default multi-user.target
 echo "...PULSA CUALQUIER TECLA PARA CONTINUAR..."
 read -n 1 -s
 sudo reboot
