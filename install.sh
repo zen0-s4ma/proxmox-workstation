@@ -50,6 +50,8 @@ echo "==> creando el servicio para el autologin durante la instalacion..."
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 cp -f ./custom_services/autologin.service /etc/systemd/system/getty@tty1.service.d/override.conf
 sudo systemctl daemon-reload
+sudo systemctl disable getty@tty1.service
+sudo systemctl enable getty@tty1.service
 
 echo
 echo "==> creando lanzador de terminal al iniciar sesion grafica..."
@@ -141,8 +143,6 @@ echo "==> .bash_profile Actualizado para lanzar la fase 2…"
 echo
 echo "==> Configuración inicial completa. Reiniciando el sistema para proceder a Fase 2..."
 sudo systemctl set-default multi-user.target
-sudo systemctl enable getty@tty1.service
-sudo systemctl restart getty@tty1.service
 
 echo "...FIN DE INSTALL.SH - PULSA CUALQUIER TECLA PARA CONTINUAR..."
 read -n 1 -s
