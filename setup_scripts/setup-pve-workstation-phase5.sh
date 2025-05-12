@@ -15,10 +15,6 @@ echo "==> Eligiendo terminal…"
 echo
 sudo update-alternatives --config x-terminal-emulator
 echo
-echo "==> Eligiendo editoreditor"
-echo
-sudo update-alternatives --config editor
-echo
 echo "==> ¡Sistema Proxmox Workstation configurado y listo!"
 
 ##############################################################################
