@@ -3,6 +3,10 @@ set -e
 
 USER_NAME="zenosama"
 
+
+##############################################################################
+# 1) Resumen del sistema con neofetch
+###############################################################################
 echo
 echo "==> Iniciando Script Fase 5 - FINAL…"
 echo
