@@ -41,5 +41,5 @@ echo
 chsh -s /bin/bash "$USER_NAME"
 
 echo
-echo "==> ZSH customizada, en el primer arranque se elijen las opciones de personalizacion"
+echo "==> ZSH customizada"
 echo
