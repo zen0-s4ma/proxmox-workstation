@@ -1,4 +1,9 @@
+[Unit]
+Description=Autologin Temporal a TTY1
+
 [Service]
 Type=oneshot
-ExecStart=
 ExecStart=-/sbin/agetty --autologin zenosama --noclear %I $TERM
+
+[Install]
+WantedBy=multi-user.target
