@@ -58,6 +58,7 @@ echo "==> creando lanzador de terminal al iniciar sesion grafica..."
 cp -f ./setup_scripts/init_terminal.sh /opt/pve-setup/init_terminal.sh
 chmod +x /opt/pve-setup/init_terminal.sh
 cp -f ./setup_scripts/autostart_terminal.desktop /opt/pve-setup/autostart_terminal.desktop
+chmod +x /opt/pve-setup/autostart_terminal.desktop
 
 ###############################################################################
 # 2) Agregar Repositorios de kali
