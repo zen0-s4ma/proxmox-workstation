@@ -38,7 +38,7 @@ cp -f ./setup_scripts/setup-pve-workstation-phase2.sh /opt/pve-setup/setup-pve-w
 cp -f ./setup_scripts/setup-pve-workstation-phase3.sh /opt/pve-setup/setup-pve-workstation-phase3.sh
 cp -f ./setup_scripts/setup-pve-workstation-phase4.sh /opt/pve-setup/setup-pve-workstation-phase4.sh
 cp -f ./setup_scripts/setup-pve-workstation-phase5.sh /opt/pve-setup/setup-pve-workstation-phase5.sh
-cp -f ./config_files/zsh_custom.sh /opt/pve-setup/zsh_custom.sh
+cp -f ./setup_scripts/zsh_custom.sh /opt/pve-setup/zsh_custom.sh
 
 echo
 echo "==> Dando permisos de ejecucion a los scripts..."
