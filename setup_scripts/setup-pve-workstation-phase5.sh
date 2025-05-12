@@ -19,10 +19,6 @@ echo "==> Eligiendo editoreditor"
 echo
 sudo update-alternatives --config editor
 echo
-echo "==> Eligiendo interprete de python3"
-echo
-sudo update-alternatives --config python3
-echo
 echo "==> ¡Sistema Proxmox Workstation configurado y listo!"
 
 ##############################################################################
