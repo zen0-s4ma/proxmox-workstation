@@ -34,9 +34,7 @@ sudo apt install -y budgie-desktop budgie-core
 echo
 echo "==> Instalando Mate…"
 sudo apt install -y mate-desktop-environment mate-desktop-environment-extras
-echo
-sudo apt install -y arc-theme papirus-icon-theme numix-gtk-theme numix-icon-theme-circle materia-gtk-theme orchis-gtk-theme \
-               breeze-icon-theme gnome-icon-theme oxygen-icon-theme
+
 
 ###############################################################################
 # 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase
