@@ -48,7 +48,6 @@ chmod +x /opt/pve-setup/setup-pve-workstation-phase5.sh
 echo
 echo "==> creando el servicio para el autologin durante la instalacion..."
 cp -f ./custom_services/autologin.service /etc/systemd/system/autologin.service
-chmod +x /etc/systemd/system/autologin.service
 
 echo
 echo "==> creando lanzador de terminal al iniciar sesion grafica..."
