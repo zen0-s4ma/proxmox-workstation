@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "==> Iniciando Script Fase 2…"
+echo "==> Iniciando Script Fase 4…"
 
 USER_NAME="zenosama"
 

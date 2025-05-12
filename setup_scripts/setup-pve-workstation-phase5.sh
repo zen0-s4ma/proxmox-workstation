@@ -4,7 +4,7 @@ set -e
 USER_NAME="zenosama"
 
 echo
-echo "==> Iniciando Script Final…"
+echo "==> Iniciando Script Fase 5 - FINAL…"
 echo
 neofetch
 echo
