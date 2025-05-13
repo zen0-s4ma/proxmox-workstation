@@ -30,7 +30,7 @@ sudo systemctl set-default graphical.target
 ###############################################################################
 echo
 echo "==> Cambiando a ZSH - chsh -s /bin/zsh ${USER_NAME}..."
-chsh -s /bin/zsh ${USER_NAME}
+sudo chsh -s /bin/zsh ${USER_NAME}
 
 ##############################################################################
 # 4) Copiando fichero de autostart de customizacion de zsh para el primer reinicio.
