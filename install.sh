@@ -135,13 +135,10 @@ echo
 echo "==> [${USER_NAME}] Actualizando: pve-headers"
 apt install -y pve-headers
 
-echo
-echo "==> [${USER_NAME}] Actualizando: firmware-linux"
-apt install -y firmware-linux-free firmware-linux-nonfree
-
 ###############################################################################
 # 6) Comprobaciones
 ###############################################################################
+echo
 echo "==> Comprobacion de variables…"
 echo "==> Usuario actual: $(id -un)"
 echo "==> Usuario creado: $USER_NAME"
