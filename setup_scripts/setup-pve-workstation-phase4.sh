@@ -14,8 +14,7 @@ cd "$HOME"
 echo
 echo "==> Comenzando ejecución de post-instalación como usuario $(id -un)..."
 echo
-echo "==> Customizando ZSH..."
-/opt/pve-setup/zsh_custom.sh
+echo "==> En construccion
 
 ###############################################################################
 # 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase
