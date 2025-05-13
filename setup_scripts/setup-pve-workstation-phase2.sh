@@ -23,7 +23,8 @@ echo "==> Instalando paquetes de desarrollo y compilación…"
 sudo apt install -y \
   dkms build-essential curl git wget python3 python3-pip \
   gcc g++ clang lldb lld golang rustc cargo dpkg gnupg2 \
-  apt-transport-https ca-certificates kitty xfce4-terminal zsh
+  apt-transport-https ca-certificates kitty xfce4-terminal \
+  zsh wine
   
 ###############################################################################
 # 2) Instalar editores
@@ -104,6 +105,7 @@ flatpak install -y flathub org.jdownloader.JDownloader
 flatpak install -y flathub com.visualstudio.code
 flatpak install -y flathub xyz.ketok.Speedtest
 flatpak install -y flathub org.winehq.Wine
+flatpak install -y flathub tv.kodi.Kodi
 
 ###############################################################################
 # 11) Instalar Docker CE y componer entorno de contenedores
