@@ -103,6 +103,7 @@ flatpak install -y flathub net.mullvad.MullvadBrowser
 flatpak install -y flathub org.jdownloader.JDownloader
 flatpak install -y flathub com.visualstudio.code
 flatpak install -y flathub xyz.ketok.Speedtest
+flatpak install -y flathub org.winehq.Wine
 
 ###############################################################################
 # 11) Instalar Docker CE y componer entorno de contenedores
