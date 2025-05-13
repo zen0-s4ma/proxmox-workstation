@@ -19,13 +19,6 @@ echo
 sudo update-alternatives --config x-terminal-emulator
 
 ##############################################################################
-# 2) Activar entorno grafico
-###############################################################################
-echo
-echo "==> Activando entorno grafico..."
-sudo systemctl set-default graphical.target 
-
-##############################################################################
 # 3) Cambiando a ZSH como shell por defecto y cargando el .zshrc
 ###############################################################################
 echo

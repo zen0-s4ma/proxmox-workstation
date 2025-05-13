@@ -16,29 +16,24 @@ echo "==> lanzando customizador de ZSH..."
 /opt/pve-setup/zsh_customizer.sh
 
 ##############################################################################
-# 2) Cambiando el autostart para que arranque con la actualizacion
+# 2) Activar entorno grafico
 ###############################################################################
 echo
-echo "==> actualizando autostart..."
-/opt/pve-setup/autostart_zsh_customizer.desktop
-sudo rm -rf "${HOME}/.config/autostart/autostart_zsh_customizer.desktop"
+echo "==> Activando entorno grafico..."
+sudo systemctl set-default graphical.target 
 
-###############################################################################
-# 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase
+##############################################################################
+# 99.a) Limpieza de .bash_profile
 ###############################################################################
 echo
-echo "==> Actualizacion del .bash_profile…"
-USER_HOME=$(eval echo "~$USER_NAME")
-cp -f /opt/pve-setup/bash_profiles_phase6 "$USER_HOME/.bash_profile"
-sudo chown "$USER_NAME:$USER_NAME" /home/$USER_NAME/.bash_profile
-sudo chmod 644 /home/$USER_NAME/.bash_profile
-echo "==> .bash_profile Actualizado para lanzar la fase 6…"
+echo "==> Vaciando el fichero .bash_profile..."
+: > "$HOME/.bash_profile"
 
 ##############################################################################
 # 99.b) Reinicio
 ###############################################################################
 echo
-echo "==> Reiniciando el sistema en modo grafico para proceder a Fase 6..."
+echo "==> Reiniciando el sistema en modo grafico..."
 
 echo
 echo "...FIN DE PHASE 5 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
