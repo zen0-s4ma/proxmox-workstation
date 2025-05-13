@@ -5,7 +5,7 @@ USER_NAME="zenosama"
 
 echo "==> 0. print del home: ${HOME}"
 # Variables
-ZSH_CUSTOM="${HOME}/.oh-my-zsh/custom"
+ZSH_CUSTOM="${HOME}/.oh-my-zsh/custom/themes/powerlevel10k"
 INSTALL_SCRIPT_URL="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
 P10K_GIT_REPO="https://github.com/romkatv/powerlevel10k.git"
 ZSHRC="${HOME}/.zshrc"
@@ -32,10 +32,10 @@ fi
 
 echo
 echo "==> 3. Clonar e instalar powerlevel10k si no esta presente"
-if [ ! -d "${ZSH_CUSTOM}/themes/powerlevel10k" ]; then
+if [ ! -d "${ZSH_CUSTOM}" ]; then
     echo
-    mkdir -p "${ZSH_CUSTOM}/themes/powerlevel10k"
-    git clone --depth=1 "$P10K_GIT_REPO" "${ZSH_CUSTOM}/themes/powerlevel10k/"
+    mkdir -p "${ZSH_CUSTOM}"
+    git clone --depth=1 "$P10K_GIT_REPO" "${ZSH_CUSTOM}"
 else
     echo "==> El repositorio powerlevel10k ya existe. No se realiza la instalación."
 fi
