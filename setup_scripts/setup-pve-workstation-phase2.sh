@@ -111,7 +111,8 @@ flatpak install -y flathub com.google.Chrome
 flatpak install -y flathub io.gitlab.librewolf-community
 flatpak install -y flathub org.torproject.torbrowser-launcher
 flatpak install -y flathub com.github.sdv43.whaler
-
+flatpak install -y flathub io.github.ebonjaeger.bluejay
+flatpak install -y flathub io.emeric.toolblex
 
 ###############################################################################
 # 11) Instalar Docker CE y componer entorno de contenedores
