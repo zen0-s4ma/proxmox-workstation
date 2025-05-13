@@ -61,6 +61,7 @@ sudo systemctl set-default graphical.target
 ##############################################################################
 # 6) Cambiando a ZSH como shell por defecto y cargando el .zshrc
 ###############################################################################
+/opt/pve-setup/zsh_custom.sh
 echo
 echo "==> Cambiando a ZSH - chsh -s /bin/zsh ${USER_NAME}..."
 echo
