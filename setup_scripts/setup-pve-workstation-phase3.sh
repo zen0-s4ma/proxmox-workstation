@@ -36,16 +36,16 @@ sudo apt install -y cinnamon cinnamon-desktop-environment cinnamon-control-cente
 echo
 echo "==> Actualizacion del .bash_profile…"
 USER_HOME=$(eval echo "~$USER_NAME")
-cp -f /opt/pve-setup/bash_profiles_phase5 "$USER_HOME/.bash_profile"
+cp -f /opt/pve-setup/bash_profiles_phase4 "$USER_HOME/.bash_profile"
 sudo chown "$USER_NAME:$USER_NAME" /home/$USER_NAME/.bash_profile
 sudo chmod 644 /home/$USER_NAME/.bash_profile
-echo "==> .bash_profile Actualizado para lanzar la fase 5…"
+echo "==> .bash_profile Actualizado para lanzar la fase 4…"
 
 ##############################################################################
 # 99.b) Reinicio
 ###############################################################################
 echo
-echo "==> Configuración inicial completa. Reiniciando el sistema en modo tty para proceder a Fase 5..."
-echo "...FIN DE PHASE 3 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
-read -n 1 -s
+echo "==> Configuración inicial completa. Reiniciando el sistema en modo tty para proceder a Fase 4..."
+#echo "...FIN DE PHASE 3 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
+#read -n 1 -s
 sudo reboot

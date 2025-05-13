@@ -29,7 +29,6 @@ echo "==> Copiando ficheros de bash profile..."
 cp -f ./config_files/bash_profiles_phase2 /opt/pve-setup/bash_profiles_phase2
 cp -f ./config_files/bash_profiles_phase3 /opt/pve-setup/bash_profiles_phase3
 cp -f ./config_files/bash_profiles_phase4 /opt/pve-setup/bash_profiles_phase4
-cp -f ./config_files/bash_profiles_phase5 /opt/pve-setup/bash_profiles_phase5
 cp -f ./config_files/zshrc /opt/pve-setup/zshrc
 
 echo
@@ -37,18 +36,19 @@ echo "==> Copiando scripts de instalacion..."
 cp -f ./setup_scripts/setup-pve-workstation-phase2.sh /opt/pve-setup/setup-pve-workstation-phase2.sh
 cp -f ./setup_scripts/setup-pve-workstation-phase3.sh /opt/pve-setup/setup-pve-workstation-phase3.sh
 cp -f ./setup_scripts/setup-pve-workstation-phase4.sh /opt/pve-setup/setup-pve-workstation-phase4.sh
-cp -f ./setup_scripts/setup-pve-workstation-phase5.sh /opt/pve-setup/setup-pve-workstation-phase5.sh
 cp -f ./setup_scripts/zsh_custom.sh /opt/pve-setup/zsh_custom.sh
 cp -f ./setup_scripts/system_update.sh /usr/local/bin/system_update.sh
+cp -f ./setup_scripts/install_auto_bspwm.sh /opt/pve-setup/install_auto_bspwm.sh
+
 
 echo
 echo "==> Dando permisos de ejecucion a los scripts..."
 chmod +x /opt/pve-setup/setup-pve-workstation-phase2.sh
 chmod +x /opt/pve-setup/setup-pve-workstation-phase3.sh
 chmod +x /opt/pve-setup/setup-pve-workstation-phase4.sh
-chmod +x /opt/pve-setup/setup-pve-workstation-phase5.sh
 chmod +x /opt/pve-setup/zsh_custom.sh
 chmod +x /usr/local/bin/system_update.sh
+chmod +x /opt/pve-setup/install_auto_bspwm.sh
 
 echo
 echo "==> creando el servicio para el autologin durante la instalacion..."
@@ -150,6 +150,6 @@ echo "==> .bash_profile Actualizado para lanzar la fase 2…"
 echo
 echo "==> Configuración inicial completa. Reiniciando el sistema en modo tty para proceder a Fase 2..."
 sudo systemctl set-default multi-user.target
-echo "...FIN DE INSTALL.SH - PULSA CUALQUIER TECLA PARA CONTINUAR..."
-read -n 1 -s
+#echo "...FIN DE INSTALL.SH - PULSA CUALQUIER TECLA PARA CONTINUAR..."
+#read -n 1 -s
 sudo reboot
