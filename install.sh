@@ -39,6 +39,7 @@ cp -f ./setup_scripts/setup-pve-workstation-phase4.sh /opt/pve-setup/setup-pve-w
 cp -f ./setup_scripts/load_ollama_ia_model.sh /opt/pve-setup/load_ollama_ia_model.sh
 cp -f ./setup_scripts/system_update.sh /usr/local/bin/system_update.sh
 cp -f ./setup_scripts/install_auto_bspwm.sh /opt/pve-setup/install_auto_bspwm.sh
+cp -f ./setup_scripts/zsh_customizer.sh /opt/pve-setup/zsh_customizer.sh
 
 echo
 echo "==> Dando permisos de ejecucion a los scripts..."
@@ -48,6 +49,7 @@ chmod +x /opt/pve-setup/setup-pve-workstation-phase4.sh
 chmod +x /opt/pve-setup/load_ollama_ia_model.sh
 chmod +x /usr/local/bin/system_update.sh
 chmod +x /opt/pve-setup/install_auto_bspwm.sh
+chmod +x /opt/pve-setup/zsh_customizer.sh
 
 echo
 echo "==> creando el servicio para el autologin durante la instalacion..."
@@ -61,6 +63,8 @@ echo
 echo "==> creando lanzador de terminal al iniciar sesion grafica..."
 cp -f ./setup_scripts/init_terminal.sh /opt/pve-setup/init_terminal.sh
 chmod +x /opt/pve-setup/init_terminal.sh
+cp -f ./setup_scripts/autostart_zsh_customizer.desktop /opt/pve-setup/autostart_zsh_customizer.desktop
+chmod +x /opt/pve-setup/autostart_zsh_customizer.desktop
 cp -f ./setup_scripts/autostart_terminal.desktop /opt/pve-setup/autostart_terminal.desktop
 chmod +x /opt/pve-setup/autostart_terminal.desktop
 
@@ -149,6 +153,8 @@ echo "==> .bash_profile Actualizado para lanzar la fase 2…"
 echo
 echo "==> Configuración inicial completa. Reiniciando el sistema en modo tty para proceder a Fase 2..."
 sudo systemctl set-default multi-user.target
-#echo "...FIN DE INSTALL.SH - PULSA CUALQUIER TECLA PARA CONTINUAR..."
-#read -n 1 -s
+
+echo
+echo "...FIN DE INSTALL.SH - PULSA CUALQUIER TECLA PARA CONTINUAR..."
+read -n 1 -s
 sudo reboot

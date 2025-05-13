@@ -179,6 +179,8 @@ echo "==> .bash_profile Actualizado para lanzar la fase 3…"
 ###############################################################################
 echo
 echo "==> Configuración inicial completa. Reiniciando el sistema en modo tty para proceder a Fase 3..."
-#echo "...FIN DE PHASE 2 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
-#read -n 1 -s
+
+echo
+echo "...FIN DE PHASE 2 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
+read -n 1 -s
 sudo reboot
