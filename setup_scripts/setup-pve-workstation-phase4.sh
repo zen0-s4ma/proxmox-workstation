@@ -63,8 +63,8 @@ echo
 echo "==> copiando el archivo .zshrc..."
 cp -f /opt/pve-setup/zshrc "$HOME"/.zshrc
 echo
-echo "==> Lanzando ZSH..."
-zsh -ic "source ${HOME}/.zshrc"
+#echo "==> Lanzando ZSH..."
+#zsh -ic "source ${HOME}/.zshrc"
 echo
 echo "==> Eligiendo ZSH como predeterminada..."
 sudo chsh -s /bin/zsh ${USER_NAME}

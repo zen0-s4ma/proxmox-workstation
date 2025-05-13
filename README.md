@@ -6,4 +6,3 @@ brave-browser --no-sandbox
 sudo apt -t kali-rolling install <paquete>
 
 
-
