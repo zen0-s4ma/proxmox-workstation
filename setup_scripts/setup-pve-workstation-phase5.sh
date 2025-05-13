@@ -61,22 +61,22 @@ sudo systemctl set-default graphical.target
 ##############################################################################
 # 6) Cambiando a ZSH como shell por defecto y cargando el .zshrc
 ###############################################################################
-echo "==> Customizando ZSH..."
-/opt/pve-setup/zsh_custom.sh
-echo
-echo "==> Cambiando a ZSH - chsh -s /bin/zsh ${USER_NAME}..."
-echo
-echo "==> copiando el archivo .zshrc..."
-cp -f /opt/pve-setup/zshrc "$HOME"/.zshrc
-echo
-echo "==> contenido de .zshrc:"
-cat "$HOME"/.zshrc
-echo
-echo "==> Lanzando ZSH..."
-zsh -ic "source ${HOME}/.zshrc"
-echo
-echo "==> Eligiendo ZSH como predeterminada..."
-sudo chsh -s /bin/zsh ${USER_NAME}
+#echo "==> Customizando ZSH..."
+#/opt/pve-setup/zsh_custom.sh
+#echo
+#echo "==> Cambiando a ZSH - chsh -s /bin/zsh ${USER_NAME}..."
+#echo
+#echo "==> copiando el archivo .zshrc..."
+#cp -f /opt/pve-setup/zshrc "$HOME"/.zshrc
+#echo
+#echo "==> contenido de .zshrc:"
+#cat "$HOME"/.zshrc
+#echo
+#echo "==> Lanzando ZSH..."
+#zsh -ic "source ${HOME}/.zshrc"
+#echo
+#echo "==> Eligiendo ZSH como predeterminada..."
+#sudo chsh -s /bin/zsh ${USER_NAME}
 
 ##############################################################################
 # 99.b) Reinicio
