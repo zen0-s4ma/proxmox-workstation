@@ -76,7 +76,7 @@ sudo systemctl set-default graphical.target
 #zsh -ic "source ${HOME}/.zshrc"
 #echo
 #echo "==> Eligiendo ZSH como predeterminada..."
-#sudo chsh -s /bin/zsh ${USER_NAME}
+sudo chsh -s /bin/zsh ${USER_NAME}
 
 ##############################################################################
 # 99.b) Reinicio
