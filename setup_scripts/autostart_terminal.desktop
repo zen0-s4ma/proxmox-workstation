@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Application
 Name=Auto Neofetch
-Exec=x-terminal-emulator -e sh -c 'command -v neofetch >/dev/null && neofetch || echo "Neofetch no está instalado"; exec bash'
+Exec=x-terminal-emulator -e sh -c 'command -v neofetch >/dev/null && neofetch || echo "Neofetch no está instalado"; exec zsh'
 Terminal=false
