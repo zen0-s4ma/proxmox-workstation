@@ -70,7 +70,7 @@ echo "==> Eligiendo ZSH como predeterminada..."
 sudo chsh -s /bin/zsh ${USER_NAME}
 echo
 echo "==> Lanzando ZSH..."
-zsh
+zsh -c "exit"
 
 ##############################################################################
 # 99.b) Reinicio

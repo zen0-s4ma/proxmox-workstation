@@ -84,6 +84,7 @@ sudo apt install -y tor proxychains
 # 9) Instalar Ollama (IA local)
 ###############################################################################
 # 1. Instalar Ollama si no existe
+echo
 echo "==> Instalacion de IA  (Ollama)..."
 if ! command -v ollama >/dev/null 2>&1; then
   echo "==> Instalando Ollama..."
