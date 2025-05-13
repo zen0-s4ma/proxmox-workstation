@@ -57,6 +57,6 @@ echo
 echo "==> Configuración inicial por consola completa. Reiniciando el sistema en modo grafico para proceder a Fase 5..."
 
 echo
-echo "...FIN DE PHASE 5 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
+echo "...FIN DE PHASE 4 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
 read -n 1 -s
 sudo reboot
