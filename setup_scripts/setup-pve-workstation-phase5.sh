@@ -61,6 +61,7 @@ sudo systemctl set-default graphical.target
 ##############################################################################
 # 6) Cambiando a ZSH como shell por defecto y cargando el .zshrc
 ###############################################################################
+echo "==> Customizando ZSH..."
 /opt/pve-setup/zsh_custom.sh
 echo
 echo "==> Cambiando a ZSH - chsh -s /bin/zsh ${USER_NAME}..."
@@ -82,6 +83,6 @@ sudo chsh -s /bin/zsh ${USER_NAME}
 ###############################################################################
 echo
 echo "==> Configuración inicial completa. Reiniciando con el entorno grafico activado..."
-#echo "...FIN DE FASE FINAL - PULSA CUALQUIER TECLA PARA CONTINUAR. ULTIMO REBOOT Y ARRANCA CON ENTORNO GRAFICO..."
-#read -n 1 -s
-sudo reboot
+echo "...FIN DE FASE FINAL - PULSA CUALQUIER TECLA PARA CONTINUAR. ULTIMO REBOOT Y ARRANCA CON ENTORNO GRAFICO..."
+read -n 1 -s
+#sudo reboot
