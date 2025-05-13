@@ -9,14 +9,21 @@ echo "==> Usuario: ${USER_NAME}"
 echo "==> Home_path: ${HOME}"
 
 ##############################################################################
-# 1) Copiando fichero de autostart de customizacion de zsh para el primer reinicio.
+# 1) Cambiando a ZSH como shell por defecto y cargando el .zshrc
+###############################################################################
+echo
+echo "==> Cambiando a ZSH - chsh -s /bin/zsh ${USER_NAME}..."
+sudo chsh -s /bin/zsh ${USER_NAME}
+
+##############################################################################
+# 2) Copiando fichero de autostart de customizacion de zsh para el primer reinicio.
 ###############################################################################
 echo
 echo "==> lanzando customizador de ZSH..."
 /opt/pve-setup/zsh_customizer.sh
 
 ##############################################################################
-# 2) Activar entorno grafico
+# 3) Activar entorno grafico
 ###############################################################################
 echo
 echo "==> Activando entorno grafico..."
@@ -37,5 +44,5 @@ echo "==> Reiniciando el sistema en modo grafico..."
 
 echo
 echo "...FIN DE PHASE 5 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
-read -n 1 -s
-sudo reboot
+#read -n 1 -s
+#sudo reboot

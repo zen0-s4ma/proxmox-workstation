@@ -27,10 +27,13 @@ echo "==> Instalando Desktop-base…"
 sudo apt install -y desktop-base 
 echo
 echo "==> Instalando Xfce4…"
-sudo apt install -y xfce4 xfce4-goodies
+sudo apt install -y --install-recommends xfce4 xfce4-goodies
 echo
 echo "==> Instalando Cinnamon…"
-sudo apt install -y cinnamon-desktop-environment
+sudo apt install -y --install-recommends cinnamon-desktop-environment
+echo
+echo "==> Instalando complementos restantes"
+sudo apt install -y network-manager network-manager-gnome gvfs-backends gvfs-fuse vlc browser-plugin-vlc freetuxtv backintime-qt papirus-icon-theme
 
 ###############################################################################
 # 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase
@@ -51,5 +54,5 @@ echo "==> Reiniciando el sistema en modo tty para proceder a Fase 4..."
 
 echo
 echo "...FIN DE PHASE 3 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
-read -n 1 -s
-sudo reboot
+#read -n 1 -s
+#sudo reboot

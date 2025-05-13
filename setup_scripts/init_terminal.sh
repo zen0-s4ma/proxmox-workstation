@@ -11,11 +11,9 @@ mkdir -p "${USER_HOME}/.config/autostart"
 
 echo
 echo "==> Creando fichero de lanzador de terminal…"
-#cp -f /opt/pve-setup/autostart_zsh_customizer.desktop "${USER_HOME}/.config/autostart/autostart_zsh_customizer.desktop"
 cp -f /opt/pve-setup/autostart_terminal.desktop "${USER_HOME}/.config/autostart/autostart_terminal.desktop"
 
 # Asegúrate de que el usuario tenga permisos sobre el fichero
-#chown "${USER_NAME}:${USER_NAME}" "${USER_HOME}/.config/autostart/autostart_zsh_customizer.desktop"
 chown "${USER_NAME}:${USER_NAME}" "${USER_HOME}/.config/autostart/autostart_terminal.desktop"
 
 echo

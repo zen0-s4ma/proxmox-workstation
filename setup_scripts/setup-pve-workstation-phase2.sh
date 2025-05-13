@@ -24,10 +24,23 @@ sudo apt install -y \
   dkms build-essential curl git wget python3 python3-pip \
   gcc g++ clang lldb lld golang rustc cargo dpkg gnupg2 \
   apt-transport-https ca-certificates kitty xfce4-terminal \
-  zsh wine
-  
+  zsh zsh-syntax-highlighting zsh-autosuggestions wine \
+  fzf lsd bat coreutils feh rofi procps tty-clock
+
 ###############################################################################
-# 2) Instalar editores
+# 2) Instalar paquetes de sonido
+###############################################################################
+echo
+echo "==> Instalando paquetes de desarrollo y compilación…"
+sudo apt install --install-recommends -y \
+  alsa-utils pipewire-audio pavucontrol
+
+echo 
+sudo systemctl --user enable --now pipewire pipewire-pulse wireplumber
+sudo usermod -aG audio $USER_NAME
+
+###############################################################################
+# 3) Instalar brave directo al sistema
 ###############################################################################
 echo
 echo "==> Instalando editores…"
@@ -38,14 +51,14 @@ echo "==> Instalando navegador de terceros: Brave…"
 sudo curl -fsS https://dl.brave.com/install.sh | sh
 
 ###############################################################################
-# 3) Bluetooth
+# 4) Bluetooth
 ###############################################################################
 echo
 echo "==> Instalando herramientas de Bluetooth…"
 sudo apt install -y bluez bluetooth bluez-tools rfkill
 
 ###############################################################################
-# 4) Utilidades de red y USB
+# 5) Utilidades de red y USB
 ###############################################################################
 echo
 echo "==> Instalando utilidades de red y firmware USB…"
@@ -53,35 +66,35 @@ sudo apt install -y net-tools wireless-tools ethtool usbutils dnsutils \
                iputils-ping whois traceroute rsync
 
 ###############################################################################
-# 5) Herramientas de archivado
+# 6) Herramientas de archivado
 ###############################################################################
 echo
 echo "==> Instalando herramientas de archivado y compactación…"
 sudo apt install -y unzip p7zip-full rar unrar zip tar gzip bzip2 xz-utils
 
 ###############################################################################
-# 6) Utilidades de sistema
+# 7) Utilidades de sistema
 ###############################################################################
 echo
 echo "==> Instalando utilidades de sistema adicionales…"
 sudo apt install -y htop neofetch tree jq xclip lsof
              
 ###############################################################################
-# 7) Complementos VMWare
+# 8) Complementos VMWare
 ###############################################################################
 echo
 echo "==> Instalando complementos VMWare…"
 sudo apt install -y open-vm-tools open-vm-tools-desktop xserver-xorg-video-vmware gnome-software
 
 ###############################################################################
-# 8) Tor y Proxychains
+# 9) Tor y Proxychains
 ###############################################################################
 echo
 echo "==> Instalando Tor y Tor Browser Launcher…"
 sudo apt install -y tor proxychains
 
 ###############################################################################
-# 9) Instalar Ollama (IA local)
+# 10) Instalar Ollama (IA local)
 ###############################################################################
 # 1. Instalar Ollama si no existe
 echo
@@ -100,7 +113,7 @@ export OLLAMA_KEEP_ALIVE="-1"
 echo "==> Variable OLLAMA_KEEP_ALIVE fijada a $OLLAMA_KEEP_ALIVE"
 
 ###############################################################################
-# 10) Instalar Flatpak y aplicaciones
+# 11) Instalar Flatpak y aplicaciones
 ###############################################################################
 echo
 echo "==> Instalando Flatpak..."
@@ -127,7 +140,7 @@ flatpak install -y flathub io.github.ebonjaeger.bluejay
 flatpak install -y flathub io.emeric.toolblex
 
 ###############################################################################
-# 11) Instalar Docker CE y componer entorno de contenedores
+# 12) Instalar Docker CE y componer entorno de contenedores
 ###############################################################################
 echo
 echo "==> Instalando Docker Engine y herramientas..."
@@ -182,5 +195,5 @@ echo "==> Configuración inicial completa. Reiniciando el sistema en modo tty pa
 
 echo
 echo "...FIN DE PHASE 2 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
-read -n 1 -s
-sudo reboot
+#read -n 1 -s
+#sudo reboot

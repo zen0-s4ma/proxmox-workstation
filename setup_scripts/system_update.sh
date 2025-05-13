@@ -18,6 +18,4 @@ sudo dpkg --configure -a
 sudo apt install -f -y
 echo
 neofetch
-echo 
-nvidia-smi
 echo

@@ -3,6 +3,7 @@ set -e
 
 USER_NAME="zenosama"
 HOME="/home/$USER_NAME"
+fdir="$HOME/.local/share/fonts"
 
 echo
 echo "==> Usuario: ${USER_NAME}"
@@ -18,12 +19,18 @@ echo "==> Eligiendo terminal…"
 echo
 sudo update-alternatives --config x-terminal-emulator
 
+
 ##############################################################################
-# 3) Cambiando a ZSH como shell por defecto y cargando el .zshrc
+# 2) Cargando fonts
 ###############################################################################
 echo
-echo "==> Cambiando a ZSH - chsh -s /bin/zsh ${USER_NAME}..."
-sudo chsh -s /bin/zsh ${USER_NAME}
+echo "==> Aplicando Fuentes…"
+if [[ -d "$fdir" ]]; then
+    cp -rv /opt/pve-setup/fonts/* $fdir
+else
+    mkdir -p $fdir
+    cp -rv /opt/pve-setup/fonts/* $fdir
+fi
 
 ##############################################################################
 # 4) Copiando fichero de autostart de customizacion de zsh para el primer reinicio.
@@ -51,5 +58,5 @@ echo "==> Configuración inicial por consola completa. Reiniciando el sistema en
 
 echo
 echo "...FIN DE PHASE 4 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
-read -n 1 -s
-sudo reboot
+#read -n 1 -s
+#sudo reboot

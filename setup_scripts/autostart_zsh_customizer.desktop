@@ -1,5 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Auto Neofetch
-Exec=x-terminal-emulator -e sh -c 'command -v /opt/pve-setup/zsh_customizer.sh >/dev/null && neofetch || echo "Error durante el script de customizacion ZSH"; exec zsh'
-Terminal=false

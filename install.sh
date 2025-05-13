@@ -23,13 +23,14 @@ cp -f ./config_files/ceph.list /etc/apt/sources.list.d/ceph.list
 cp -f ./config_files/interfaces /etc/network/interfaces
 cp -f ./config_files/resolv.conf /etc/resolv.conf
 cp -f ./config_files/sources.list /etc/apt/sources.list
-
-echo
-echo "==> Copiando ficheros de bash profile..."
 cp -f ./config_files/bash_profiles_phase2 /opt/pve-setup/bash_profiles_phase2
 cp -f ./config_files/bash_profiles_phase3 /opt/pve-setup/bash_profiles_phase3
 cp -f ./config_files/bash_profiles_phase4 /opt/pve-setup/bash_profiles_phase4
 cp -f ./config_files/zshrc /opt/pve-setup/zshrc
+cp -f ./config_files/p10k.zsh /opt/pve-setup/p10k.zsh
+cp -a ./config_files/fonts /opt/pve-setup/
+
+
 
 echo
 echo "==> Copiando scripts de instalacion..."
@@ -42,6 +43,7 @@ cp -f ./setup_scripts/load_ollama_ia_model.sh /opt/pve-setup/load_ollama_ia_mode
 cp -f ./setup_scripts/system_update.sh /usr/local/bin/system_update.sh
 cp -f ./setup_scripts/install_auto_bspwm.sh /opt/pve-setup/install_auto_bspwm.sh
 cp -f ./setup_scripts/zsh_customizer.sh /opt/pve-setup/zsh_customizer.sh
+cp -f ./setup_scripts/terminal_hello_new_session.sh /opt/pve-setup/terminal_hello_new_session.sh
 
 echo
 echo "==> Dando permisos de ejecucion a los scripts..."
@@ -54,6 +56,7 @@ chmod +x /opt/pve-setup/load_ollama_ia_model.sh
 chmod +x /usr/local/bin/system_update.sh
 chmod +x /opt/pve-setup/install_auto_bspwm.sh
 chmod +x /opt/pve-setup/zsh_customizer.sh
+chmod +x /opt/pve-setup/terminal_hello_new_session.sh
 
 echo
 echo "==> creando el servicio para el autologin durante la instalacion..."
@@ -67,8 +70,6 @@ echo
 echo "==> creando lanzador de terminal al iniciar sesion grafica..."
 cp -f ./setup_scripts/init_terminal.sh /opt/pve-setup/init_terminal.sh
 chmod +x /opt/pve-setup/init_terminal.sh
-cp -f ./setup_scripts/autostart_zsh_customizer.desktop /opt/pve-setup/autostart_zsh_customizer.desktop
-chmod +x /opt/pve-setup/autostart_zsh_customizer.desktop
 cp -f ./setup_scripts/autostart_terminal.desktop /opt/pve-setup/autostart_terminal.desktop
 chmod +x /opt/pve-setup/autostart_terminal.desktop
 
@@ -118,15 +119,25 @@ fi
 echo
 echo "==> [${USER_NAME}] Actualizando: update…"
 apt update
+
 echo
 echo "==> [${USER_NAME}] Actualizando: upgrade"
+apt dist-upgrade -y
+
+echo "==> [${USER_NAME}] Actualizando: upgrade"
 apt upgrade -y
+
 echo
 echo "==> [${USER_NAME}] Actualizando: full-upgrade"
 apt full-upgrade -y
+
 echo
 echo "==> [${USER_NAME}] Actualizando: pve-headers"
 apt install -y pve-headers
+
+echo
+echo "==> [${USER_NAME}] Actualizando: firmware-linux"
+apt install -y firmware-linux-free firmware-linux-nonfree
 
 ###############################################################################
 # 6) Comprobaciones
@@ -160,5 +171,5 @@ sudo systemctl set-default multi-user.target
 
 echo
 echo "...FIN DE INSTALL.SH - PULSA CUALQUIER TECLA PARA CONTINUAR..."
-read -n 1 -s
-sudo reboot
+#read -n 1 -s
+#sudo reboot
