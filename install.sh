@@ -169,4 +169,4 @@ sudo systemctl set-default multi-user.target
 echo
 echo "...FIN DE INSTALL.SH - PULSA CUALQUIER TECLA PARA CONTINUAR..."
 #read -n 1 -s
-#sudo reboot
+sudo reboot

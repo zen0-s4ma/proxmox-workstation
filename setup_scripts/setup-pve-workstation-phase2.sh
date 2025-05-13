@@ -196,4 +196,4 @@ echo "==> Configuración inicial completa. Reiniciando el sistema en modo tty pa
 echo
 echo "...FIN DE PHASE 2 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
 #read -n 1 -s
-#sudo reboot
+sudo reboot

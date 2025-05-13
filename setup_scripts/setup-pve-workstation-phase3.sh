@@ -55,4 +55,4 @@ echo "==> Reiniciando el sistema en modo tty para proceder a Fase 4..."
 echo
 echo "...FIN DE PHASE 3 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
 #read -n 1 -s
-#sudo reboot
+sudo reboot

@@ -59,4 +59,4 @@ echo "==> Configuración inicial por consola completa. Reiniciando el sistema en
 echo
 echo "...FIN DE PHASE 4 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
 #read -n 1 -s
-#sudo reboot
+sudo reboot
