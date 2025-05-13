@@ -105,6 +105,13 @@ flatpak install -y flathub org.jdownloader.JDownloader
 flatpak install -y flathub com.visualstudio.code
 flatpak install -y flathub xyz.ketok.Speedtest
 flatpak install -y flathub tv.kodi.Kodi
+flatpak install -y flathub org.keepassxc.KeePassXC
+flatpak install -y flathub org.mozilla.firefox
+flatpak install -y flathub com.google.Chrome
+flatpak install -y flathub io.gitlab.librewolf-community
+flatpak install -y flathub org.torproject.torbrowser-launcher
+flatpak install -y flathub com.github.sdv43.whaler
+
 
 ###############################################################################
 # 11) Instalar Docker CE y componer entorno de contenedores
@@ -159,6 +166,6 @@ echo "==> .bash_profile Actualizado para lanzar la fase 3…"
 ###############################################################################
 echo
 echo "==> Configuración inicial completa. Reiniciando el sistema en modo tty para proceder a Fase 3..."
-#echo "...FIN DE PHASE 2 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
-#read -n 1 -s
+echo "...FIN DE PHASE 2 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
+read -n 1 -s
 sudo reboot
