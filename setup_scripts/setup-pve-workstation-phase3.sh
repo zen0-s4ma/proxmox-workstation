@@ -23,12 +23,14 @@ echo
 echo "==> Instalando servidor grafico…"
 sudo apt install -y dbus-x11 x11-xserver-utils xinit xorg
 echo
+echo "==> Instalando Desktop-base…"
+sudo apt install -y desktop-base 
+echo
 echo "==> Instalando Xfce4…"
-sudo apt install -y desktop-base xfce4 xfce4-goodies
+sudo apt install -y xfce4 xfce4-goodies
 echo
 echo "==> Instalando Cinnamon…"
-sudo apt install -y cinnamon cinnamon-desktop-environment cinnamon-control-center cinnamon-screensaver nemo nemo-fileroller \
-               gnome-screenshot gnome-keyring network-manager-gnome
+sudo apt install -y cinnamon-desktop-environment
 
 ###############################################################################
 # 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase
