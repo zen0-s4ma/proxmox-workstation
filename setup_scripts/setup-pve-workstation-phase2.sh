@@ -104,7 +104,6 @@ flatpak install -y flathub net.mullvad.MullvadBrowser
 flatpak install -y flathub org.jdownloader.JDownloader
 flatpak install -y flathub com.visualstudio.code
 flatpak install -y flathub xyz.ketok.Speedtest
-flatpak install -y flathub org.winehq.Wine
 flatpak install -y flathub tv.kodi.Kodi
 
 ###############################################################################
