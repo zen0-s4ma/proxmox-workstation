@@ -19,28 +19,21 @@ echo
 sudo update-alternatives --config x-terminal-emulator
 
 ##############################################################################
-# 2) Limpieza de .bash_profile
-###############################################################################
-echo
-echo "==> Vaciando el fichero .bash_profile..."
-: > "$HOME/.bash_profile"
-
-##############################################################################
-# 3) Activar entorno grafico
+# 2) Activar entorno grafico
 ###############################################################################
 echo
 echo "==> Activando entorno grafico..."
 sudo systemctl set-default graphical.target 
 
 ##############################################################################
-# 4) Cambiando a ZSH como shell por defecto y cargando el .zshrc
+# 3) Cambiando a ZSH como shell por defecto y cargando el .zshrc
 ###############################################################################
 echo
 echo "==> Cambiando a ZSH - chsh -s /bin/zsh ${USER_NAME}..."
 chsh -s /bin/zsh ${USER_NAME}
 
 ##############################################################################
-# 5) Copiando fichero de autostart de customizacion de zsh para el primer reinicio.
+# 4) Copiando fichero de autostart de customizacion de zsh para el primer reinicio.
 ###############################################################################
 echo
 echo "==> Creando y configurando la terminal que se inicia al arrancar..."
