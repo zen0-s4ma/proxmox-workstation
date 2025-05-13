@@ -52,8 +52,8 @@ sudo systemctl set-default graphical.target
 ##############################################################################
 # 5) Borrado del servicio de autologin
 ###############################################################################
-echo
-echo "==> Borrando el servicio de autologin..."
+#echo
+#echo "==> Borrando el servicio de autologin..."
 #Borrado del servicio de autologin
 #sudo rm /etc/systemd/system/getty@tty1.service.d/override.conf
 #sudo systemctl daemon-reload

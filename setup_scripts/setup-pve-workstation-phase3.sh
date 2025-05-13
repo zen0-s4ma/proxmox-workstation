@@ -29,13 +29,6 @@ echo
 echo "==> Instalando Cinnamon…"
 sudo apt install -y cinnamon cinnamon-desktop-environment cinnamon-control-center cinnamon-screensaver nemo nemo-fileroller \
                gnome-screenshot gnome-keyring network-manager-gnome
-echo
-echo "==> Instalando Budgie…"
-sudo apt install -y budgie-desktop budgie-core
-echo
-echo "==> Instalando Mate…"
-sudo apt install -y mate-desktop-environment mate-desktop-environment-extras
-
 
 ###############################################################################
 # 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase
