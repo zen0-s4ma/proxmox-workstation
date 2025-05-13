@@ -37,9 +37,7 @@ echo
 cp -f /opt/pve-setup/autostart_terminal.desktop "${HOME}/.config/autostart/auto_terminal.desktop"
 # Asegúrate de que el usuario tenga permisos sobre el fichero
 chown "${USER_NAME}:${USER_NAME}" "${HOME}/.config/autostart/auto_terminal.desktop"
-echo
 echo "La terminal se ejecutará automáticamente al iniciar el entorno gráfico."
-echo
 
 ##############################################################################
 # 4) Activar entorno grafico
