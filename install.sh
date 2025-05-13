@@ -39,7 +39,6 @@ cp -f ./setup_scripts/setup-pve-workstation-phase4.sh /opt/pve-setup/setup-pve-w
 cp -f ./setup_scripts/system_update.sh /usr/local/bin/system_update.sh
 cp -f ./setup_scripts/install_auto_bspwm.sh /opt/pve-setup/install_auto_bspwm.sh
 
-
 echo
 echo "==> Dando permisos de ejecucion a los scripts..."
 chmod +x /opt/pve-setup/setup-pve-workstation-phase2.sh
