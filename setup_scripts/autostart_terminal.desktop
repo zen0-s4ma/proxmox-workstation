@@ -1,5 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Auto Ejecucion Inicial de la Terminal
-Exec=x-terminal-emulator -e zsh -c 'neofetch; exec zsh'
-Terminal=true
+Name=Autostart Neofetch/Actualización
+Exec=x-terminal-emulator -e /usr/local/bin/system_update.sh
+Terminal=false
+X-GNOME-Autostart-enabled=true

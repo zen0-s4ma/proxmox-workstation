@@ -27,4 +27,5 @@ sudo apt install -f -y
 
 echo
 neofetch
-echo
+
+zsh
