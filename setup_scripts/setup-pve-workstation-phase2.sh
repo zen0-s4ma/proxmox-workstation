@@ -31,13 +31,8 @@ sudo apt install -y \
 # 2) Instalar paquetes de sonido
 ###############################################################################
 echo
-echo "==> Instalando paquetes de desarrollo y compilación…"
-sudo apt install --install-recommends -y \
-  alsa-utils pipewire-audio pavucontrol
-
-echo 
-sudo systemctl --user enable --now pipewire pipewire-pulse wireplumber
-sudo usermod -aG audio $USER_NAME
+echo "==> Instalando pulseaudio-module-bluetooth…"
+sudo apt install --install-recommends -y alsa-utils pulseaudio pulseaudio-module-bluetooth
 
 ###############################################################################
 # 3) Instalar brave directo al sistema
@@ -96,24 +91,29 @@ sudo apt install -y tor proxychains
 ###############################################################################
 # 10) Instalar Ollama (IA local)
 ###############################################################################
-# 1. Instalar Ollama si no existe
 echo
 echo "==> Instalacion de IA  (Ollama)..."
 if ! command -v ollama >/dev/null 2>&1; then
   echo "==> Instalando Ollama..."
   curl -fsSL https://ollama.com/install.sh | sh
 fi
-# 2. Descargar modelo gemma3:1b si no está presente
 if ! ollama list | grep -q "gemma3:1b"; then
   echo "==> Descargando modelo gemma3:1b..."
   ollama pull gemma3:1b
 fi
-# 3. Configurar residencia indefinida en VRAM
 export OLLAMA_KEEP_ALIVE="-1"
 echo "==> Variable OLLAMA_KEEP_ALIVE fijada a $OLLAMA_KEEP_ALIVE"
 
 ###############################################################################
-# 11) Instalar Flatpak y aplicaciones
+# 11) Reseteando bluetooth y arrancando pulseaudio
+###############################################################################
+echo
+echo "==> Instalacion de IA  (Ollama)..."
+sudo systemctl restart bluetooth
+pulseaudio -k
+
+###############################################################################
+# 12) Instalar Flatpak y aplicaciones
 ###############################################################################
 echo
 echo "==> Instalando Flatpak..."
@@ -140,7 +140,7 @@ flatpak install -y flathub io.github.ebonjaeger.bluejay
 flatpak install -y flathub io.emeric.toolblex
 
 ###############################################################################
-# 12) Instalar Docker CE y componer entorno de contenedores
+# 13) Instalar Docker CE y componer entorno de contenedores
 ###############################################################################
 echo
 echo "==> Instalando Docker Engine y herramientas..."
