@@ -86,6 +86,15 @@ echo "==> Instalando Tor y Tor Browser Launcher…"
 sudo apt install -y tor proxychains
 
 ###############################################################################
+# 9) SSH Y VPN
+###############################################################################
+echo
+echo "==> Instalando ssh y vpn…"
+sudo apt install -y openssh-client openssh-server \
+  openvpn network-manager-openvpn-gnome \
+  wireguard wireguard-tools network-manager-wireguard gnome-keyring
+
+###############################################################################
 # 10) Instalar Ollama (IA local)
 ###############################################################################
 echo
