@@ -19,21 +19,41 @@ sudo apt install -y nvidia-driver
 echo
 echo "==> Instalando LightDM…"
 sudo apt install -y lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings 
+
 echo
 echo "==> Instalando servidor grafico…"
 sudo apt install -y dbus-x11 x11-xserver-utils xinit xorg
+
 echo
 echo "==> Instalando Desktop-base…"
 sudo apt install -y desktop-base 
+
 echo
 echo "==> Instalando Xfce4…"
 sudo apt install -y --install-recommends xfce4 xfce4-goodies
+
 echo
 echo "==> Instalando Cinnamon…"
 sudo apt install -y --install-recommends cinnamon-desktop-environment
+
 echo
 echo "==> Instalando complementos restantes"
-sudo apt install -y network-manager network-manager-gnome gvfs-backends gvfs-fuse vlc freetuxtv backintime-qt papirus-icon-theme
+sudo apt install -y network-manager network-manager-gnome gvfs-backends gvfs-fuse vlc freetuxtv backintime-qt \
+    papirus-icon-theme adwaita-icon-theme fonts-cantarell
+
+echo
+echo "==> Instalando GNOME (X11 solamente)…"
+sudo apt install -y --install-recommends \
+    gnome-session gnome-shell gnome-control-center \
+    nautilus gnome-terminal xdg-desktop-portal-gnome
+
+#echo
+#echo "==> Configurando LightDM para GNOME Xorg por defecto…"
+#sudo mkdir -p /etc/lightdm/lightdm.conf.d
+#cat <<EOF | sudo tee /etc/lightdm/lightdm.conf.d/50-gnome-xorg.conf
+#[Seat:*]
+#user-session=gnome-xorg
+#EOF
 
 ###############################################################################
 # 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase

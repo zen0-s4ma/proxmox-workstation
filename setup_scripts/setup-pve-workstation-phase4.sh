@@ -28,6 +28,7 @@ else
     mkdir -p $fdir
     cp -rv /opt/pve-setup/fonts/* $fdir
 fi
+fc-cache -fv
 
 ##############################################################################
 # 4) Copiando fichero de autostart de customizacion de zsh para el primer reinicio.
