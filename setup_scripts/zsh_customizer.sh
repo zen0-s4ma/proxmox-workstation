@@ -30,13 +30,6 @@ echo "==> Creando enlaces simbolicos al root de .zshrc y .p10k.zsh"
 sudo ln -sfv "$USER_HOME"/.zshrc /root/.zshrc
 sudo ln -sfv "$USER_HOME"/.p10k.zsh /root/.p10k.zsh
 
-echo
-echo "==> Recargando .zshrc de Usuario..."
-source "$USER_HOME/.zshrc"
-
-echo
-echo "==> Recargando .zshrc de Root..."
-source /root/.zshrc
 
 
 
