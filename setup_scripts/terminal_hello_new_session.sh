@@ -16,5 +16,4 @@ echo "==> Home_path: ${HOME}"
 #echo "==> Carcando IA (Ollama)…"
 #/opt/pve-setup/load_ollama_ia_model.sh
 
-echo
 /usr/local/bin/system_update.sh
