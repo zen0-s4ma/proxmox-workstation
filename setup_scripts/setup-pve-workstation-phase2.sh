@@ -23,7 +23,7 @@ echo "==> Instalando paquetes de desarrollo, compilacion y sistema…"
 sudo apt install -y \
   dkms build-essential curl git wget python3 python3-pip \
   gcc g++ clang lldb lld golang rustc cargo dpkg gnupg2 \
-  apt-transport-https ca-certificates lsof wine rofi htop fastfetch \
+  apt-transport-https ca-certificates lsof wine rofi htop neofetch \
   tree jq nano vim neovim gedit
 
 ###############################################################################
