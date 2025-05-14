@@ -33,7 +33,7 @@ echo "==> Instalando Cinnamon…"
 sudo apt install -y --install-recommends cinnamon-desktop-environment
 echo
 echo "==> Instalando complementos restantes"
-sudo apt install -y network-manager network-manager-gnome gvfs-backends gvfs-fuse vlc browser-plugin-vlc freetuxtv backintime-qt papirus-icon-theme
+sudo apt install -y network-manager network-manager-gnome gvfs-backends gvfs-fuse vlc freetuxtv backintime-qt papirus-icon-theme
 
 ###############################################################################
 # 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase

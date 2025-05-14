@@ -92,7 +92,7 @@ echo
 echo "==> Instalando ssh y vpn…"
 sudo apt install -y openssh-client openssh-server \
   openvpn network-manager-openvpn-gnome \
-  wireguard wireguard-tools network-manager-wireguard gnome-keyring
+  wireguard wireguard-tools gnome-keyring
 
 ###############################################################################
 # 10) Instalar Ollama (IA local)
@@ -117,25 +117,31 @@ echo
 echo "==> Instalando Flatpak..."
 sudo apt install -y flatpak
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install -y flathub org.dupot.easyflatpak
-flatpak install -y flathub org.videolan.VLC
-flatpak install -y flathub org.mozilla.Thunderbird
-flatpak install -y flathub org.torproject.torbrowser-launcher
-flatpak install -y flathub org.cubocore.CorePDF
-flatpak install -y flathub io.github.shiftey.Desktop
-flatpak install -y flathub net.mullvad.MullvadBrowser
-flatpak install -y flathub org.jdownloader.JDownloader
-flatpak install -y flathub com.visualstudio.code
-flatpak install -y flathub xyz.ketok.Speedtest
-flatpak install -y flathub tv.kodi.Kodi
-flatpak install -y flathub org.keepassxc.KeePassXC
-flatpak install -y flathub org.mozilla.firefox
-flatpak install -y flathub com.google.Chrome
-flatpak install -y flathub io.gitlab.librewolf-community
-flatpak install -y flathub org.torproject.torbrowser-launcher
-flatpak install -y flathub com.github.sdv43.whaler
-flatpak install -y flathub io.github.ebonjaeger.bluejay
-flatpak install -y flathub io.emeric.toolblex
+
+APPS=(
+    org.dupot.easyflatpak
+    org.videolan.VLC
+    org.mozilla.Thunderbird
+    org.torproject.torbrowser-launcher
+    org.cubocore.CorePDF
+    io.github.shiftey.Desktop
+    net.mullvad.MullvadBrowser
+    org.jdownloader.JDownloader
+    com.visualstudio.code
+    xyz.ketok.Speedtest
+    tv.kodi.Kodi
+    org.keepassxc.KeePassXC
+    org.mozilla.firefox
+    com.google.Chrome
+    io.gitlab.librewolf-community
+    com.github.sdv43.whaler
+    io.github.ebonjaeger.bluejay
+    io.emeric.toolblex
+)
+
+for app in "${APPS[@]}"; do
+    flatpak install --or-update --system -y flathub "$app"
+done
 
 ###############################################################################
 # 13) Instalar Docker CE y componer entorno de contenedores
