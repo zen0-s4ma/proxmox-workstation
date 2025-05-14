@@ -37,23 +37,14 @@ echo "==> Instalando Cinnamon…"
 sudo apt install -y --install-recommends cinnamon-desktop-environment
 
 echo
-echo "==> Instalando complementos restantes"
-sudo apt install -y network-manager network-manager-gnome gvfs-backends gvfs-fuse vlc freetuxtv backintime-qt \
-    papirus-icon-theme adwaita-icon-theme fonts-cantarell
+echo "==> Agregando arte y customizacion"
+sudo apt install -y --install-recommends gnome-backgrounds mate-backgrounds plasma-wallpapers-addons ukui-wallpapers lomiri-wallpapers \
+  plymouth-themes numix-gtk-theme numix-icon-theme numix-icon-theme-circle orchis-gtk-theme \
+  materia-gtk-theme arc-theme breeze-gtk-theme papirus-icon-theme paper-icon-theme adwaita-icon-theme fonts-cantarell
 
 echo
-echo "==> Instalando GNOME (X11 solamente)…"
-sudo apt install -y --install-recommends \
-    gnome-session gnome-shell gnome-control-center \
-    nautilus gnome-terminal xdg-desktop-portal-gnome
-
-#echo
-#echo "==> Configurando LightDM para GNOME Xorg por defecto…"
-#sudo mkdir -p /etc/lightdm/lightdm.conf.d
-#cat <<EOF | sudo tee /etc/lightdm/lightdm.conf.d/50-gnome-xorg.conf
-#[Seat:*]
-#user-session=gnome-xorg
-#EOF
+echo "==> Instalando complementos restantes"
+sudo apt install -y --install-recommends network-manager gvfs-backends gvfs-fuse freetuxtv backintime-qt
 
 ###############################################################################
 # 99.a) Actualizacion del .bash_profile para lanzar la siguiente fase
