@@ -17,4 +17,4 @@ echo "==> Home_path: ${HOME}"
 #/opt/pve-setup/load_ollama_ia_model.sh
 
 echo
-zsh -c "actualizate"
+/usr/local/bin/system_update.sh
