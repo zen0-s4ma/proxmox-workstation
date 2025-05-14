@@ -51,6 +51,7 @@ sudo curl -fsS https://dl.brave.com/install.sh | sh
 echo
 echo "==> Instalando herramientas de Bluetooth…"
 sudo apt install -y bluez bluetooth bluez-tools rfkill
+sudo systemctl restart bluetooth
 
 ###############################################################################
 # 5) Utilidades de red y USB
@@ -103,14 +104,6 @@ if ! ollama list | grep -q "gemma3:1b"; then
 fi
 export OLLAMA_KEEP_ALIVE="-1"
 echo "==> Variable OLLAMA_KEEP_ALIVE fijada a $OLLAMA_KEEP_ALIVE"
-
-###############################################################################
-# 11) Reseteando bluetooth y arrancando pulseaudio
-###############################################################################
-echo
-echo "==> Instalacion de IA  (Ollama)..."
-sudo systemctl restart bluetooth
-pulseaudio -k
 
 ###############################################################################
 # 12) Instalar Flatpak y aplicaciones
