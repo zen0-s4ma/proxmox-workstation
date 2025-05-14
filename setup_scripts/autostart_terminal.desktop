@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Application
-Name=Auto Neofetch
+Name=Auto Ejecucion Inicial de la Terminal
 Exec=x-terminal-emulator -e sh -c 'command -v /opt/pve-setup/terminal_hello_new_session.sh >/dev/null || echo "Error en la carga del script"; exec zsh'
 Terminal=false

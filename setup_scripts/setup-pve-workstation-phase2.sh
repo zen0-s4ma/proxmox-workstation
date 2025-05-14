@@ -16,16 +16,23 @@ if [[ $(id -un) != "$USER_NAME" ]]; then
 fi
 
 ###############################################################################
-# 1) Instalar paquetes de desarrollo y compilación
+# 1) Instalar paquetes de desarrollo, compilacion y sistema
 ###############################################################################
 echo
-echo "==> Instalando paquetes de desarrollo y compilación…"
+echo "==> Instalando paquetes de desarrollo, compilacion y sistema…"
 sudo apt install -y \
   dkms build-essential curl git wget python3 python3-pip \
   gcc g++ clang lldb lld golang rustc cargo dpkg gnupg2 \
-  apt-transport-https ca-certificates kitty xfce4-terminal \
-  zsh zsh-syntax-highlighting zsh-autosuggestions wine \
-  fzf lsd bat coreutils feh rofi procps tty-clock
+  apt-transport-https ca-certificates lsof wine rofi htop fastfetch \
+  tree jq nano vim neovim gedit
+
+###############################################################################
+# 1.1) Instalar paquetes de terminales y shells
+###############################################################################
+echo
+echo "==> paquetes de terminales y shellsn…"
+sudo apt install -y kitty zsh zsh-syntax-highlighting zsh-autosuggestions  \
+  fzf lsd bat coreutils feh procps tty-clock xclip 
 
 ###############################################################################
 # 2) Instalar paquetes de sonido
@@ -37,10 +44,6 @@ sudo apt install --install-recommends -y alsa-utils pulseaudio pulseaudio-module
 ###############################################################################
 # 3) Instalar brave directo al sistema
 ###############################################################################
-echo
-echo "==> Instalando editores…"
-sudo apt install -y nano vim neovim gedit libreoffice
-
 echo
 echo "==> Instalando navegador de terceros: Brave…"
 sudo curl -fsS https://dl.brave.com/install.sh | sh
@@ -67,20 +70,13 @@ sudo apt install -y net-tools wireless-tools ethtool usbutils dnsutils \
 echo
 echo "==> Instalando herramientas de archivado y compactación…"
 sudo apt install -y unzip p7zip-full rar unrar zip tar gzip bzip2 xz-utils
-
-###############################################################################
-# 7) Utilidades de sistema
-###############################################################################
-echo
-echo "==> Instalando utilidades de sistema adicionales…"
-sudo apt install -y htop neofetch tree jq xclip lsof
              
 ###############################################################################
 # 8) Complementos VMWare
 ###############################################################################
 echo
 echo "==> Instalando complementos VMWare…"
-sudo apt install -y open-vm-tools open-vm-tools-desktop xserver-xorg-video-vmware gnome-software
+sudo apt install -y open-vm-tools open-vm-tools-desktop xserver-xorg-video-vmware
 
 ###############################################################################
 # 9) Tor y Proxychains

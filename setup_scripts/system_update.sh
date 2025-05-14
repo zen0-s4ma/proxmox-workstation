@@ -17,5 +17,5 @@ echo "==> Revisando dependencias…"
 sudo dpkg --configure -a
 sudo apt install -f -y
 echo
-neofetch
+fastfetch
 echo
