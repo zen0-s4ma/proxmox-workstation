@@ -44,5 +44,5 @@ echo "==> Reiniciando el sistema en modo grafico..."
 
 echo
 echo "...FIN DE PHASE 5 - PULSA CUALQUIER TECLA PARA CONTINUAR..."
-#read -n 1 -s
+read -n 1 -s
 sudo reboot
