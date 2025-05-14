@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 set -e
 
 USER_NAME="zenosama"
@@ -8,17 +8,13 @@ echo
 echo "==> Usuario: ${USER_NAME}"
 echo "==> Home_path: ${HOME}"
 
-echo
-echo "==> Recargando .zshrc de Usuario..."
-source "$HOME/.zshrc"
+#echo
+#echo "==> Recargando .zshrc de Usuario..."
+#source "$HOMEcd /.zshrc"
 
 #echo
-#echo "==> Recargando .zshrc de Root..."
-#source /root/.zshrc
-
-echo
-echo "==> Carcando IA (Ollama)…"
-/opt/pve-setup/load_ollama_ia_model.sh
+#echo "==> Carcando IA (Ollama)…"
+#/opt/pve-setup/load_ollama_ia_model.sh
 
 echo
 actualizate
