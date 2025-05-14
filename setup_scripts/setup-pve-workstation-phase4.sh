@@ -13,12 +13,9 @@ echo "==> Home_path: ${HOME}"
 # 1) Seleccion de terminal
 ###############################################################################
 echo
-echo "==> Iniciando Script Fase 4 - FINAL…"
-echo
 echo "==> Eligiendo terminal…"
 echo
 sudo update-alternatives --config x-terminal-emulator
-
 
 ##############################################################################
 # 2) Cargando fonts

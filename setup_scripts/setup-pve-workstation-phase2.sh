@@ -32,7 +32,7 @@ sudo apt install -y \
 ###############################################################################
 echo
 echo "==> Instalando pulseaudio-module-bluetooth…"
-sudo apt install --install-recommends -y alsa-utils pulseaudio pulseaudio-module-bluetooth pulseaudio-dlna
+sudo apt install --install-recommends -y alsa-utils pulseaudio pulseaudio-module-bluetooth
 
 ###############################################################################
 # 3) Instalar brave directo al sistema
