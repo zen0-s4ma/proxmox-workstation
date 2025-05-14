@@ -1,5 +1,5 @@
 [Desktop Entry]
 Type=Application
 Name=Auto Ejecucion Inicial de la Terminal
-Exec=x-terminal-emulator -e zsh -c '/opt/pve-setup/terminal_hello_new_session.sh; exec zsh'
+Exec=x-terminal-emulator -e zsh -c 'neofetch; exec zsh'
 Terminal=true
