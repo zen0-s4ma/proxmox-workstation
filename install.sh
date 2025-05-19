@@ -58,14 +58,6 @@ chmod +x /opt/pve-setup/install_auto_bspwm.sh
 chmod +x /opt/pve-setup/zsh_customizer.sh
 chmod +x /opt/pve-setup/terminal_hello_new_session.sh
 
-#echo
-#echo "==> creando el servicio para el autologin durante la instalacion..."
-#sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
-#cp -f ./custom_services/autologin.service /etc/systemd/system/getty@tty1.service.d/override.conf
-#sudo systemctl daemon-reload
-#sudo systemctl disable getty@tty1.service
-#sudo systemctl enable getty@tty1.service
-
 echo
 echo "==> creando lanzador de terminal al iniciar sesion grafica..."
 cp -f ./setup_scripts/init_terminal.sh /opt/pve-setup/init_terminal.sh
