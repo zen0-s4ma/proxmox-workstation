@@ -113,6 +113,10 @@ echo "==> [${USER_NAME}] Actualizando: update…"
 apt update
 
 echo
+echo "==> [${USER_NAME}] Actualizando: pve-headers"
+apt install -y pve-headers
+
+echo
 echo "==> [${USER_NAME}] Actualizando: upgrade"
 apt dist-upgrade -y
 
@@ -122,10 +126,6 @@ apt upgrade -y
 echo
 echo "==> [${USER_NAME}] Actualizando: full-upgrade"
 apt full-upgrade -y
-
-echo
-echo "==> [${USER_NAME}] Actualizando: pve-headers"
-apt install -y pve-headers
 
 ###############################################################################
 # 6) Comprobaciones
