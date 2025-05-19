@@ -6,11 +6,10 @@ USER_NAME="zenosama"
 if ! id -u "$USER_NAME" &>/dev/null; then
   # Crear usuario con Bash como shell por defecto y en el grupo sudo
   useradd -m -s /bin/bash -G sudo "$USER_NAME"
-  echo "$USER_NAME:$USER_PASS" | chpasswd
+  echo "$USER_NAME:$USER_NAME" | chpasswd
 
   # Permitir sudo sin contraseña
-  echo "$USER_NAME ALL=(ALL) NOPASSWD:ALL" \
-       > /etc/sudoers.d/99-$USER_NAME-nopasswd
+  echo "$USER_NAME ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/99-$USER_NAME-nopasswd
   chmod 0440 /etc/sudoers.d/99-$USER_NAME-nopasswd
 
   # Crear ~/.bash_profile si no existe
