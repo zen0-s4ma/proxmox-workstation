@@ -44,9 +44,9 @@ sudo apt install --install-recommends -y alsa-utils pulseaudio pulseaudio-module
 ###############################################################################
 # 3) Instalar brave directo al sistema
 ###############################################################################
-echo
-echo "==> Instalando navegador de terceros: Brave…"
-sudo curl -fsS https://dl.brave.com/install.sh | sh
+#echo
+#echo "==> Instalando navegador de terceros: Brave…"
+#sudo curl -fsS https://dl.brave.com/install.sh | sh
 
 ###############################################################################
 # 4) Bluetooth
@@ -97,18 +97,18 @@ sudo apt install -y openssh-client openssh-server \
 ###############################################################################
 # 10) Instalar Ollama (IA local)
 ###############################################################################
-echo
-echo "==> Instalacion de IA  (Ollama)..."
-if ! command -v ollama >/dev/null 2>&1; then
-  echo "==> Instalando Ollama..."
-  curl -fsSL https://ollama.com/install.sh | sh
-fi
-if ! ollama list | grep -q "gemma3:1b"; then
-  echo "==> Descargando modelo gemma3:1b..."
-  ollama pull gemma3:1b
-fi
-export OLLAMA_KEEP_ALIVE="-1"
-echo "==> Variable OLLAMA_KEEP_ALIVE fijada a $OLLAMA_KEEP_ALIVE"
+#echo
+#echo "==> Instalacion de IA  (Ollama)..."
+#if ! command -v ollama >/dev/null 2>&1; then
+#  echo "==> Instalando Ollama..."
+#  curl -fsSL https://ollama.com/install.sh | sh
+#fi
+#if ! ollama list | grep -q "gemma3:1b"; then
+#  echo "==> Descargando modelo gemma3:1b..."
+#  ollama pull gemma3:1b
+#fi
+#export OLLAMA_KEEP_ALIVE="-1"
+#echo "==> Variable OLLAMA_KEEP_ALIVE fijada a $OLLAMA_KEEP_ALIVE"
 
 ###############################################################################
 # 12) Instalar Flatpak y aplicaciones
