@@ -22,7 +22,7 @@ sudo apt install -y lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 
 echo
 echo "==> Instalando servidor grafico…"
-sudo apt install -y dbus-x11 x11-xserver-utils xinit xorg
+sudo apt install -y x11-xserver-utils xinit dbus-x11
 
 echo
 echo "==> Instalando Desktop-base…"
@@ -30,17 +30,17 @@ sudo apt install -y desktop-base
 
 echo
 echo "==> Instalando Xfce4…"
-sudo apt install -y --install-recommends xfce4 xfce4-goodies
+sudo apt install -y xfce4 xfce4-goodies
 
-echo
-echo "==> Instalando Cinnamon…"
-sudo apt install -y --install-recommends cinnamon-desktop-environment
+#echo
+#echo "==> Instalando Cinnamon…"
+#sudo apt install -y --install-recommends cinnamon-desktop-environment
 
-echo
-echo "==> Agregando arte y customizacion"
-sudo apt install -y --install-recommends gnome-backgrounds mate-backgrounds plasma-wallpapers-addons ukui-wallpapers lomiri-wallpapers \
-  plymouth-themes numix-gtk-theme numix-icon-theme numix-icon-theme-circle orchis-gtk-theme \
-  materia-gtk-theme arc-theme breeze-gtk-theme papirus-icon-theme paper-icon-theme adwaita-icon-theme fonts-cantarell
+#echo
+#echo "==> Agregando arte y customizacion"
+#sudo apt install -y --install-recommends gnome-backgrounds mate-backgrounds plasma-wallpapers-addons ukui-wallpapers lomiri-wallpapers \
+#  plymouth-themes numix-gtk-theme numix-icon-theme numix-icon-theme-circle orchis-gtk-theme \
+#  materia-gtk-theme arc-theme breeze-gtk-theme papirus-icon-theme paper-icon-theme adwaita-icon-theme fonts-cantarell
 
 echo
 echo "==> Instalando complementos restantes"

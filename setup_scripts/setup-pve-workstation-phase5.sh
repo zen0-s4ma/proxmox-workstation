@@ -16,18 +16,20 @@ echo "==> Cambiando a ZSH - chsh -s /bin/zsh ${USER_NAME}..."
 sudo chsh -s /bin/zsh ${USER_NAME}
 
 ##############################################################################
-# 2) Copiando fichero de autostart de customizacion de zsh para el primer reinicio.
-###############################################################################
-echo
-echo "==> lanzando customizador de ZSH..."
-/opt/pve-setup/zsh_customizer.sh
-
-##############################################################################
-# 3) Activar entorno grafico
+# 2) Activar entorno grafico
 ###############################################################################
 echo
 echo "==> Activando entorno grafico..."
 sudo systemctl set-default graphical.target 
+
+##############################################################################
+# 3) Copiando fichero de autostart de customizacion de zsh para el primer reinicio.
+###############################################################################
+echo
+#echo "==> lanzando customizador de ZSH..."
+#/opt/pve-setup/zsh_customizer.sh
+echo "==> lanzando autobspwm..."
+/opt/pve-setup/install_auto_bspwm.sh
 
 ##############################################################################
 # 99.a) Limpieza de .bash_profile
