@@ -13,6 +13,7 @@ mkdir -p /opt/pve-setup
 echo
 echo "==> Creando bakups de los ficheros de configuracion..."
 cp -f /etc/apt/sources.list.d/ceph.list /etc/apt/sources.list.d/ceph.list.bak
+cp -f /etc/apt/sources.list.d/pve-enterprise.list /etc/apt/sources.list.d/pve-enterprise.list.bak
 cp -f /etc/network/interfaces /etc/network/interfaces.bak
 cp -f /etc/resolv.conf /etc/resolv.conf.bak
 cp -f /etc/apt/sources.list /etc/apt/sources.list.bak
@@ -20,6 +21,7 @@ cp -f /etc/apt/sources.list /etc/apt/sources.list.bak
 echo
 echo "==> Copiando ficheros de configuracion..."
 cp -f ./config_files/ceph.list /etc/apt/sources.list.d/ceph.list
+cp -f ./config_files/pve-enterprise.list /etc/apt/sources.list.d/pve-enterprise.list
 cp -f ./config_files/interfaces /etc/network/interfaces
 cp -f ./config_files/resolv.conf /etc/resolv.conf
 cp -f ./config_files/sources.list /etc/apt/sources.list
