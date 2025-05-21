@@ -73,16 +73,16 @@ chmod +x /opt/pve-setup/autostart_terminal.desktop
 echo
 echo "==> Importando repositorio Kali…"
 echo
-sudo apt install -y wget gnupg
+apt install -y wget gnupg
 
 # clave + repo (pin 50 para no mezclar dependencias)
 wget -qO- https://archive.kali.org/archive-key.asc | \
-     sudo tee /usr/share/keyrings/kali-archive-keyring.asc
+     tee /usr/share/keyrings/kali-archive-keyring.asc
 echo "deb [signed-by=/usr/share/keyrings/kali-archive-keyring.asc] \
      http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware" | \
-     sudo tee /etc/apt/sources.list.d/kali.list
+     tee /etc/apt/sources.list.d/kali.list
 echo -e "Package: *\nPin: release o=Kali\nPin-Priority: 50" | \
-     sudo tee /etc/apt/preferences.d/limit-kali
+     tee /etc/apt/preferences.d/limit-kali
 
 #########################################################################
 # 3) Reiniciar red
@@ -149,8 +149,8 @@ echo
 echo "==> Actualizacion del .bash_profile…"
 USER_HOME=$(eval echo "~$USER_NAME")
 cp -f /opt/pve-setup/bash_profiles_phase2 "$USER_HOME/.bash_profile"
-sudo chown "$USER_NAME:$USER_NAME" /home/$USER_NAME/.bash_profile
-sudo chmod 644 /home/$USER_NAME/.bash_profile
+chown "$USER_NAME:$USER_NAME" /home/$USER_NAME/.bash_profile
+chmod 644 /home/$USER_NAME/.bash_profile
 echo "==> .bash_profile Actualizado para lanzar la fase 2…"
 
 ##############################################################################
@@ -158,9 +158,9 @@ echo "==> .bash_profile Actualizado para lanzar la fase 2…"
 ###############################################################################
 echo
 echo "==> Configuración inicial completa. Reiniciando el sistema en modo tty para proceder a Fase 2..."
-sudo systemctl set-default multi-user.target
+systemctl set-default multi-user.target
 
 echo
 echo "...FIN DE INSTALL.SH - PULSA CUALQUIER TECLA PARA CONTINUAR..."
 #read -n 1 -s
-sudo reboot
+reboot
