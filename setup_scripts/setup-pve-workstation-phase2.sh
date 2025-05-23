@@ -62,7 +62,7 @@ sudo systemctl restart bluetooth
 echo
 echo "==> Instalando utilidades de red y firmware USB…"
 sudo apt install -y net-tools wireless-tools ethtool usbutils dnsutils \
-               iputils-ping whois traceroute rsync
+               iputils-ping whois traceroute rsync proxychains
 
 ###############################################################################
 # 6) Herramientas de archivado
@@ -79,11 +79,11 @@ echo "==> Instalando complementos VMWare…"
 sudo apt install -y open-vm-tools open-vm-tools-desktop xserver-xorg-video-vmware
 
 ###############################################################################
-# 9) Tor y Proxychains
+# 9) Tor
 ###############################################################################
 echo
-echo "==> Instalando Tor y Tor Browser Launcher…"
-sudo apt install -y tor proxychains
+echo "==> Instalando Tor Launcher…"
+sudo apt install -y tor 
 
 ###############################################################################
 # 9) SSH Y VPN
