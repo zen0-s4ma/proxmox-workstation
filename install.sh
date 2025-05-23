@@ -10,6 +10,7 @@ USER_PASS="zenosama"
 # 1) Copiar ficheros de configuración
 #########################################################################
 mkdir -p /opt/pve-setup
+
 echo
 echo "==> Creando bakups de los ficheros de configuracion..."
 cp -f /etc/apt/sources.list.d/ceph.list /etc/apt/sources.list.d/ceph.list.bak
@@ -29,6 +30,7 @@ cp -f ./config_files/bash_profiles_phase2 /opt/pve-setup/bash_profiles_phase2
 cp -f ./config_files/bash_profiles_phase3 /opt/pve-setup/bash_profiles_phase3
 cp -f ./config_files/bash_profiles_phase4 /opt/pve-setup/bash_profiles_phase4
 cp -f ./config_files/bash_profiles_phase5 /opt/pve-setup/bash_profiles_phase5
+cp -f ./config_files/bash_profiles_phase6 /opt/pve-setup/bash_profiles_phase6
 cp -f ./config_files/zshrc /opt/pve-setup/zshrc
 cp -f ./config_files/p10k.zsh /opt/pve-setup/p10k.zsh
 cp -a ./config_files/fonts /opt/pve-setup/
@@ -118,7 +120,7 @@ echo "==> [${USER_NAME}] Actualizando: pve-headers"
 apt install -y pve-headers
 
 echo
-echo "==> [${USER_NAME}] Actualizando: upgrade"
+echo "==> [${USER_NAME}] Actualizando: dist-upgrade"
 apt dist-upgrade -y
 
 echo "==> [${USER_NAME}] Actualizando: upgrade"
