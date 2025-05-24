@@ -28,7 +28,7 @@ sudo systemctl set-default graphical.target
 echo
 #echo "==> lanzando customizador de ZSH..."
 #/opt/pve-setup/zsh_customizer.sh
-echo "==> lanzando autobspwm..."
+echo "==> lanzando autobspwm..." 
 /opt/pve-setup/install_auto_bspwm.sh
 
 ##############################################################################
