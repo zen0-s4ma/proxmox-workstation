@@ -5,6 +5,10 @@ echo "==> Ejecutando: update…"
 sudo apt update
 
 echo
+echo "==> Ejecutando: dist-upgrade…"
+sudo apt dist-upgrade -y
+
+echo
 echo "==> Ejecutando: upgrade…"
 sudo apt upgrade -y
 
